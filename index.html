@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Homepage</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      integrity="sha512-4oJi2O6UfYv/ebqIq8PuP7V4s9V8r5vEBUQ18Ib7aIwsj0ejlMz1dtrE+J4+a3QfV4IY5nmLZu/tVUbRZ8Xcgw=="
-      crossorigin="anonymous" />
-    <!-- Add your own CSS styles or link to an external stylesheet here -->
+    <title>Mohammad Abolnejadian</title>
     <style>
-    /* Add your custom styles here */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -19,136 +14,161 @@
     }
 
     header {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px;
       background-color: #333;
       color: #fff;
+      text-align: center;
+      padding: 10px;
     }
 
     nav {
       display: flex;
-      align-items: center;
-      background-color: #333;
-      /* width: 10pt; */
-      padding: 10pt;
-      margin-bottom: 5pt;
+      justify-content: center;
+      background-color: #444;
+      padding: 10px;
     }
 
     nav a {
-      margin: 0 15px;
-      text-decoration: none;
       color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    #bio-section {
-      width: 60%;
+    section {
       padding: 20px;
     }
 
-    #bio-section p {
-      text-align: justify;
+    section.find-me {
+      background-color: #ddd;
+      /* display: grid; */
+      /* align-items: center; */
     }
 
-    #links-section {
-      width: 40%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
+    section.find-me a {
+      margin-right: 10px;
     }
 
-    #links-section a {
+    section.publications {
+      background-color: #fff;
+    }
+    
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      width: 100%;
+      /* column-gap: 5pt; */
+      margin-top: 20pt;
+      margin-left: 20pt;
+      margin-right: 20pt;
+      /* justify-content: center; */
+    }
+    .cv {
+      width: 100%;
       display: flex;
-      align-items: center;
-      margin-bottom: 10px;
+      justify-content: center;
       text-decoration: none;
-      color: #333;
+      margin-top: 50pt;
     }
-
-    #links-section a:hover .tip-box {
-      display: block;
+    .cv a {
+      text-decoration: none;
+      align-self: flex-start;
+      margin-left: 40pt;
     }
-
-    .tip-box {
-      display: none;
-      position: absolute;
-      background-color: #333;
-      color: #fff;
-      padding: 5px;
-      border-radius: 5px;
+    .social-link {
+      font-size: 13pt;
+      display: flex;
+  justify-content: center;
+  align-items: center;
     }
-
-    #publications-section {
-      padding: 20px;
+    .link-text {
+      margin-left: 5pt;
+      text-decoration: none;
     }
-
-    .publication {
-      margin-bottom: 10px;
+    .pub-list-item {
+      margin-top: 10pt;
     }
   </style>
   </head>
   <body>
 
-    <!-- Navigation Bar -->
-    <nav>
-      <a href="#bio-section">Bio</a>
-      <a href="#links-section">Links</a>
-      <a href="#publications-section">Publications</a>
-      <!-- Add more links as needed -->
-    </nav>
-
-    <!-- Header Section -->
     <header>
-      <div id="bio-section">
-        <h1>Your Name</h1>
-        <p>Your brief bio goes here...</p>
-      </div>
-
-      <div id="links-section">
-        <a href="#" title="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-          <span class="tip-box">LinkedIn</span>
-        </a>
-        <a href="#" title="GitHub">
-          <i class="fa-brands fa-github"></i>
-          <span class="tip-box">GitHub</span>
-        </a>
-        <a href="#" title="Download CV">
-          <i class="fas fa-file-download"></i>
-          <span class="tip-box">Download CV</span>
-        </a>
-        <a href="#" title="Scholar">
-          <i class="fas fa-graduation-cap"></i>
-          <span class="tip-box">Scholar</span>
-        </a>
-      </div>
+      <h1>Mohammad Abolnejadian</h1>
     </header>
 
-    <!-- Publications Section -->
-    <section id="publications-section">
-      <h2>Publications</h2>
+    <nav>
+      <a href="#find-me">Find Me</a>
+      <a href="#publications">Publications</a>
+      <!-- Add more navigation links as needed -->
+    </nav>
 
-      <div class="publication">
-        <p>Publication Title 1</p>
-        <a href="#" target="_blank">Video Preview</a>
-        <a href="#" target="_blank">Download Paper</a>
+    <section id="find-me" class="find-me">
+      <h2>Find Me</h2>
+      <div class="social-links">
+        <div class="social-link">
+          <a href="https://github.com/theablemo" target="_blank"
+            class="link-text">
+            <i class="fa-brands fa-github fa-xl"></i>
+            Github</a>
+        </div>
+        <div class="social-link">
+          <a href="https://www.linkedin.com/in/mohammad-abolnejadian/"
+            target="_blank"
+            class="link-text">
+            <i class="fa-brands fa-linkedin fa-xl"></i>
+            Linkedin</a>
+        </div>
+        <div class="social-link">
+          <a href="https://scholar.google.com/citations?user=jruapycAAAAJ&hl=en"
+            target="_blank"
+            class="link-text">
+            <i class="fa-brands fa-google-scholar fa-xl"></i>
+            Google Scholar</a>
+        </div>
+        <!-- Add more social media links as needed -->
       </div>
-
-      <div class="publication">
-        <p>Publication Title 2</p>
-        <a href="#" target="_blank">Video Preview</a>
-        <a href="#" target="_blank">Download Paper</a>
+      <div class="cv">
+        <a href="Mohammad Abolnejadian - CV.pdf" download>
+          <i class="fa-solid fa-download fa-xl"></i>
+          Download CV
+        </a>
       </div>
-
-      <!-- Add more publications as needed -->
-
     </section>
 
-    <!-- Add your own JavaScript code or link to external scripts here if needed -->
+    <section id="publications" class="publications">
+      <h2>Publications</h2>
+      <ul>
+        <li class="pub-list-item">Sharareh Alipour,
+          <b>Mohammad Abolnejadian</b>,
+          Kamyar Taeb, ”Leveraging
+          ChatGPT for Adaptive Learning through Personalized Prompt-based
+          Instruction: A CS1 Education Case Study”, <b>(CHI2024)</b> Case
+          Studies <br>
+          Acceptance Rate: 24%</li>
+        <a
+          href="publications/Leveraging ChatGPT for Adaptive Learning through Personalized Prompt-based.pdf"
+          target="_blank">[PDF]</a>
+        <a href="https://urls.st/chi2024-leveraging-chatgpt-in-edu"
+          target="_blank">[Video
+          Preview]</a>
+
+        <li class="pub-list-item">Mojtaba Mostafavi, Arash Asgari,
+          <b>Mohammad Abolnejadian</b>, Abbas Heydarnoori, ”DistilKaggle: A
+          Distilled Dataset of
+          Kaggle Jupyter Notebooks”, <b>(MSR2024)</b> Data and Tool Showcase
+          Track, <b>In
+            Progress...</b></li>
+        <a
+          href="publications/DistilKaggle.pdf"
+          target="_blank">[PDF]</a>
+        <!-- Add more publication items as needed -->
+      </ul>
+    </section>
+
+    <center style="margin-top: 30pt;">
+      <h3>THIS SITE IS STILL UNDER CONSTRUCTION</h3>
+      <img src="construction.gif" style="height: 10pc;">
+    </center>
+
+    <!-- Add more sections as needed -->
 
   </body>
 </html>
