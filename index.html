@@ -1,1 +1,145 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name - Homepage</title>
+  <!-- Add your own CSS styles or link to an external stylesheet here -->
+  <style>
+    /* Add your custom styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: #333;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    #bio-section {
+      width: 60%;
+      padding: 20px;
+    }
+
+    #bio-section p {
+      text-align: justify;
+    }
+
+    #links-section {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    #links-section a {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    #links-section a:hover .tip-box {
+      display: block;
+    }
+
+    .tip-box {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      color: #fff;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    #publications-section {
+      padding: 20px;
+    }
+
+    .publication {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#bio-section">Bio</a>
+    <a href="#links-section">Links</a>
+    <a href="#publications-section">Publications</a>
+    <!-- Add more links as needed -->
+  </nav>
+
+  <!-- Header Section -->
+  <header>
+    <div id="bio-section">
+      <h1>Your Name</h1>
+      <p>Your brief bio goes here...</p>
+    </div>
+    
+    <div id="links-section">
+      <a href="#" title="LinkedIn">
+        <img src="linkedin-icon.png" alt="LinkedIn Icon">
+        <span class="tip-box">LinkedIn</span>
+      </a>
+      <a href="#" title="GitHub">
+        <img src="github-icon.png" alt="GitHub Icon">
+        <span class="tip-box">GitHub</span>
+      </a>
+      <a href="#" title="Download CV">
+        <img src="download-icon.png" alt="Download Icon">
+        <span class="tip-box">Download CV</span>
+      </a>
+      <a href="#" title="Scholar">
+        <img src="scholar-icon.png" alt="Scholar Icon">
+        <span class="tip-box">Scholar</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Publications Section -->
+  <section id="publications-section">
+    <h2>Publications</h2>
+
+    <div class="publication">
+      <p>Publication Title 1</p>
+      <a href="#" target="_blank">Video Preview</a>
+      <a href="#" target="_blank">Download Paper</a>
+    </div>
+
+    <div class="publication">
+      <p>Publication Title 2</p>
+      <a href="#" target="_blank">Video Preview</a>
+      <a href="#" target="_blank">Download Paper</a>
+    </div>
+
+    <!-- Add more publications as needed -->
+
+  </section>
+
+  <!-- Add your own JavaScript code or link to external scripts here if needed -->
+
+</body>
+</html>
