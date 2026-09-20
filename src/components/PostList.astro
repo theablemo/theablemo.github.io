@@ -1,0 +1,14 @@
+---
+import { site } from '../lib/settings';
+import type { CollectionEntry } from 'astro:content';
+import { formatDate } from '../lib/content';
+interface Props { posts: CollectionEntry<'posts'>[] }
+const { posts } = Astro.props;
+---
+<div class="post-list">
+  {posts.map(({ id, data: p }) => <article>
+    <div class="post-meta"><time datetime={p.date}>{formatDate(p.date)}</time>{p.sample && <span class="sample-label">{site.labels.sample}</span>}</div>
+    <h3><a href={`/writing/${id}/`}>{p.title}</a></h3>
+    <p>{p.description}</p>
+  </article>)}
+</div>

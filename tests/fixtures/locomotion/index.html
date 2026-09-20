@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en" data-theme="dark"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Mohammad · Current, walking and running</title>
+  
+  
+  
+  
+</head>
+<body>
+  <main>
+    <header>
+      
+      <h1>Current, in motion.</h1>
+      <p class="intro">Back to the original Arcade character. Scroll down to move right and up to return. Faster travel switches from walking to running.</p>
+      <p id="load-state" class="status" role="status">Loading the walk and run poses…</p>
+      <noscript><p>The motion preview requires JavaScript. The Current character and source artwork below remain available.</p></noscript>
+    </header>
+
+    <section class="travel-route" id="travel-route" aria-label="Scroll through the character's walking and running track">
+      <div class="travel-panel" id="travel-panel">
+        <div class="stage-heading"><h2>A walk across the page.</h2><output id="action-label">Ready</output></div>
+        <div class="travel-stage"><img id="fallback" src="../../../public/assets/avatar/current.png" width="1254" height="1254" alt="Approved Current character in a white shirt, black jeans and white sneakers"><canvas id="travel-canvas" width="900" height="230" role="img" aria-label="Current character at the start of the track" hidden=""></canvas></div>
+        <div class="buttons" role="group" aria-label="Playback controls"><button id="walk" type="button" disabled="">Walk</button><button id="run" type="button" disabled="">Run</button><button id="reverse" type="button" disabled="">Reverse</button><button id="pause" type="button" disabled="">Pause</button><button id="follow-scroll" type="button" aria-pressed="true" disabled="">Follow scroll</button></div>
+        <label class="scrub-label" for="position">Position <output id="position-label">Start</output></label>
+        <input type="range" id="position" min="0" max="1000" value="0" disabled="">
+        <p class="stage-help" id="stage-help">Scroll through this track, or use Walk and Run for a timed demonstration.</p>
+        <p id="reduced-note" hidden="">Reduced motion is on. Use the position and pose controls to inspect still frames.</p>
+      </div>
+    </section>
+
+    <section class="inspection" aria-labelledby="inspect-title">
+      <h2 id="inspect-title">Look at the individual steps.</h2>
+      <p>Open this panel to inspect each pose. The original Current artwork and all earlier character studies are kept separately.</p>
+      <details id="pose-inspector">
+        <summary>Inspect poses and source artwork</summary>
+        <div class="pose-controls"><label for="inspect-clip">Action <select id="inspect-clip" disabled=""><option value="walk">Walking</option><option value="run">Running</option></select></label><label for="pose">Pose <output id="pose-label">1 of 6</output><input id="pose" type="range" min="0" max="5" value="0" disabled=""></label></div>
+        <canvas id="pose-canvas" width="240" height="240" role="img" aria-label="A single walking pose" hidden=""></canvas>
+        <div class="sheets"><figure><a href="../../../public/assets/avatar/walk.png"><img src="../../../public/assets/avatar/walk.png" width="1254" height="1254" alt="Six walking key poses for the Current character" loading="lazy"></a><figcaption>Walking source poses</figcaption></figure><figure><a href="../../../public/assets/avatar/run.png"><img src="../../../public/assets/avatar/run.png" width="1254" height="1254" alt="Six running key poses for the Current character" loading="lazy"></a><figcaption>Running source poses</figcaption></figure></div>
+      </details>
+      
+    </section>
+    
+  </main>
+
+
+</body></html>

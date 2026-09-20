@@ -1,0 +1,7 @@
+---
+import icons from '../data/icons.json';
+interface Props { name: string; class?: string }
+const { name, class: className = '' } = Astro.props;
+const icon = icons[name as keyof typeof icons] || icons.external;
+---
+<svg class:list={['icon', className]} viewBox={icon.viewBox} fill="currentColor" aria-hidden="true" focusable="false" set:html={icon.body} />

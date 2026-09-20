@@ -1,0 +1,15 @@
+{
+  "activeOutfit": "minimal-white-black",
+  "outfits": {
+    "minimal-white-black": {
+      "shirtColor": "#ffffff",
+      "markText": "",
+      "markColor": "#17232b"
+    }
+  },
+  "cameoDelayMs": [25000, 45000],
+  "bodyHeight": {
+    "desktop": 80,
+    "mobile": 56
+  }
+}

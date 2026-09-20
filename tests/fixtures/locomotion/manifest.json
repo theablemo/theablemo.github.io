@@ -1,0 +1,298 @@
+{
+  "version": 1,
+  "approvedCharacter": "../../../public/assets/avatar/current.png",
+  "outfit": "minimal-white-black",
+  "status": "locomotion-study-flat-frames",
+  "notes": "Generated pose drafts; controlled playback and measured anchors. Garment overlays and production pixel cleanup remain pending.",
+  "clips": {
+    "walk": {
+      "file": "../../../public/assets/avatar/walk.png",
+      "width": 1254,
+      "height": 1254,
+      "sourceBodyHeight": 534,
+      "strideAt96": 88,
+      "sequence": [
+        0,
+        1,
+        2,
+        5,
+        3,
+        4
+      ],
+      "frames": [
+        {
+          "source": [
+            0,
+            0,
+            418,
+            627
+          ],
+          "bounds": [
+            99,
+            71,
+            374,
+            605
+          ],
+          "pivot": [
+            236,
+            605
+          ],
+          "airborne": false
+        },
+        {
+          "source": [
+            418,
+            0,
+            418,
+            627
+          ],
+          "bounds": [
+            106,
+            75,
+            318,
+            607
+          ],
+          "pivot": [
+            209,
+            607
+          ],
+          "airborne": false
+        },
+        {
+          "source": [
+            836,
+            0,
+            418,
+            627
+          ],
+          "bounds": [
+            97,
+            73,
+            300,
+            607
+          ],
+          "pivot": [
+            188,
+            607
+          ],
+          "airborne": false
+        },
+        {
+          "source": [
+            0,
+            627,
+            418,
+            627
+          ],
+          "bounds": [
+            101,
+            31,
+            382,
+            560
+          ],
+          "pivot": [
+            231,
+            560
+          ],
+          "airborne": false
+        },
+        {
+          "source": [
+            418,
+            627,
+            418,
+            627
+          ],
+          "bounds": [
+            107,
+            31,
+            311,
+            564
+          ],
+          "pivot": [
+            202,
+            564
+          ],
+          "airborne": false
+        },
+        {
+          "source": [
+            836,
+            627,
+            418,
+            627
+          ],
+          "bounds": [
+            81,
+            31,
+            344,
+            561
+          ],
+          "pivot": [
+            180,
+            561
+          ],
+          "airborne": false
+        }
+      ]
+    },
+    "run": {
+      "file": "../../../public/assets/avatar/run.png",
+      "width": 1254,
+      "height": 1254,
+      "sourceBodyHeight": 530,
+      "strideAt96": 142,
+      "sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "frames": [
+        {
+          "source": [
+            0,
+            0,
+            418,
+            627
+          ],
+          "bounds": [
+            40,
+            81,
+            366,
+            611
+          ],
+          "pivot": [
+            208,
+            611
+          ],
+          "airborne": false
+        },
+        {
+          "source": [
+            418,
+            0,
+            418,
+            627
+          ],
+          "bounds": [
+            63,
+            95,
+            363,
+            611
+          ],
+          "pivot": [
+            191,
+            611
+          ],
+          "airborne": false
+        },
+        {
+          "source": [
+            836,
+            0,
+            418,
+            627
+          ],
+          "bounds": [
+            21,
+            77,
+            384,
+            536
+          ],
+          "pivot": [
+            197,
+            611
+          ],
+          "airborne": true
+        },
+        {
+          "source": [
+            0,
+            627,
+            418,
+            627
+          ],
+          "bounds": [
+            46,
+            38,
+            371,
+            557
+          ],
+          "pivot": [
+            196,
+            557
+          ],
+          "airborne": false
+        },
+        {
+          "source": [
+            418,
+            627,
+            418,
+            627
+          ],
+          "bounds": [
+            46,
+            41,
+            326,
+            554
+          ],
+          "pivot": [
+            187,
+            554
+          ],
+          "airborne": false
+        },
+        {
+          "source": [
+            836,
+            627,
+            418,
+            627
+          ],
+          "bounds": [
+            21,
+            31,
+            379,
+            480
+          ],
+          "pivot": [
+            182,
+            557
+          ],
+          "airborne": true
+        }
+      ]
+    },
+    "idle": {
+      "file": "../../../public/assets/avatar/current.png",
+      "sourceBodyHeight": 1101,
+      "sequence": [
+        0
+      ],
+      "frames": [
+        {
+          "source": [
+            0,
+            0,
+            1254,
+            1254
+          ],
+          "bounds": [
+            433,
+            84,
+            820,
+            1184
+          ],
+          "pivot": [
+            627,
+            1184
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "titleSuffix": "Applied AI, HCI & visualization",
+  "showFooter": true,
+  "showCVLink": true,
+  "navigation": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Work",
+      "href": "/projects/"
+    },
+    {
+      "label": "Notes",
+      "href": "/writing/"
+    },
+    {
+      "label": "CV",
+      "href": "/cv/"
+    }
+  ],
+  "labels": {
+    "now": "Now",
+    "previously": "Previously",
+    "basedIn": "Based in",
+    "email": "Email",
+    "cv": "CV",
+    "news": "Lately",
+    "service": "Teaching, mentoring & service",
+    "industry": "Industry",
+    "academia": "Academia",
+    "key": "Key",
+    "allWork": "All work",
+    "allNotes": "All notes",
+    "scholar": "Google Scholar",
+    "paper": "Paper",
+    "project": "Project",
+    "backHome": "Back to home",
+    "backIntro": "Back to introduction",
+    "education": "Education",
+    "experience": "Experience",
+    "publications": "Publications",
+    "downloadResume": "Download résumé",
+    "sample": "Sample note",
+    "gallery": "In pictures",
+    "galleryHelp": "Select an image to take a closer look.",
+    "footer": "Thanks for stopping by!",
+    "backTop": "Back to top",
+    "projectOverview": "Project overview",
+    "distilArtwork": "Notebooks, distilled."
+  },
+  "work": {
+    "title": "Work",
+    "description": "Projects in applied AI, human–computer interaction, and information visualization.",
+    "intro": "Research, engineering, and the systems that connect them.",
+    "empty": "No projects published yet. Check back soon."
+  },
+  "writing": {
+    "title": "Notes along the way",
+    "description": "Notes along the way: a collection of writing from Mohammad Abolnejadian.",
+    "intro": "Ideas, observations, and things worth a closer look.",
+    "empty": "No notes published yet. Check back soon."
+  },
+  "cv": {
+    "title": "Experience & education"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "heading": "This page isn’t here.",
+    "description": "It may have moved. You can find the projects, publications, and latest updates on the homepage.",
+    "back": "Back to the homepage"
+  },
+  "accessibility": {
+    "skip": "Skip to content",
+    "introduction": "Introduction",
+    "contact": "Contact and profiles",
+    "navigation": "Main navigation",
+    "positions": "Current positions",
+    "quickLinks": "Quick links",
+    "home": "home",
+    "backTop": "back to top",
+    "details": "Details",
+    "highlights": "highlights",
+    "resources": "resources",
+    "explore": "Explore",
+    "continue": "Continue exploring",
+    "lightMode": "Switch to light mode",
+    "darkMode": "Switch to dark mode",
+    "showKey": "Show timeline key: square for industry, diamond for academia",
+    "hideKey": "Hide timeline key: square for industry, diamond for academia",
+    "avatar": "Meet the pixel avatar",
+    "photograph": "Show photograph",
+    "motionOn": "Avatar motion: on",
+    "motionOff": "Avatar motion: off",
+    "motionReduced": "Avatar motion: reduced",
+    "motionPreference": "Following your device’s reduced motion setting",
+    "motionToggle": "Pause or resume the avatar animations"
+  },
+  "viewer": {
+    "label": "Image viewer",
+    "original": "Open original",
+    "close": "Close",
+    "closeLabel": "Close image viewer",
+    "error": "This image couldn’t load. Try opening the original.",
+    "previous": "Previous",
+    "previousLabel": "Previous image",
+    "next": "Next",
+    "nextLabel": "Next image",
+    "help": "Arrow keys or swipe to browse",
+    "count": "Image {current} of {total}",
+    "expand": "Expand image",
+    "fallbackAlt": "Article image",
+    "view": "View image"
+  }
+}

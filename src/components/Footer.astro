@@ -1,0 +1,11 @@
+---
+import { site } from '../lib/settings';
+import Icon from './Icon.astro';
+import { profile } from '../lib/settings';
+interface Props { avatarMotion?: boolean; }
+const { avatarMotion = false } = Astro.props;
+---
+{site.showFooter && <footer class="footer" id="contact">
+  <div><p>{site.labels.footer}</p><small>© {new Date().getFullYear()} {profile.name}</small>{avatarMotion && <button type="button" id="avatar-motion" class="avatar-motion" aria-pressed="true" data-on-label={site.accessibility.motionOn} data-off-label={site.accessibility.motionOff} data-reduced-label={site.accessibility.motionReduced} data-preference-label={site.accessibility.motionPreference} data-toggle-label={site.accessibility.motionToggle} hidden>{site.accessibility.motionOn}</button>}</div>
+  <a class="back-to-top" href="#top">{site.labels.backTop} <Icon name="arrow" /></a>
+</footer>}

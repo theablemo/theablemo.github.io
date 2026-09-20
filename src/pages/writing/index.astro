@@ -1,0 +1,17 @@
+---
+import { site } from '../../lib/settings';
+import Site from '../../layouts/Site.astro';
+import PostList from '../../components/PostList.astro';
+import Footer from '../../components/Footer.astro';
+import Icon from '../../components/Icon.astro';
+import { getPublishedPosts } from '../../lib/collections';
+const posts = await getPublishedPosts();
+---
+<Site title={site.writing.title} description={site.writing.description}>
+  <main class="page reading-page archive-page" id="main" tabindex="-1">
+    <a class="back-link" href="/"><Icon name="arrow" />{site.labels.backHome}</a>
+    <header class="archive-heading"><h1>{site.writing.title}</h1><p class="deck">{site.writing.intro}</p></header>
+    {posts.length ? <PostList posts={posts} /> : <p class="writing-empty">{site.writing.empty}</p>}
+    <Footer />
+  </main>
+</Site>

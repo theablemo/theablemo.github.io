@@ -1,0 +1,19 @@
+---
+import { site } from '../../lib/settings';
+import { render } from 'astro:content';
+import { getPublishedPosts } from '../../lib/collections';
+import Reading from '../../layouts/Reading.astro';
+import { formatDate } from '../../lib/content';
+export async function getStaticPaths() {
+  return (await getPublishedPosts()).map(entry => ({ params: { id: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const p = entry.data;
+---
+<Reading title={p.title} description={p.description} archive="/writing/" archiveLabel={site.labels.allNotes} sample={p.sample}
+  cover={p.cover ? { src: p.cover, alt: p.coverAlt || '', caption: p.coverCaption, width: p.coverWidth, height: p.coverHeight } : undefined}
+  gallery={p.gallery}>
+  <time slot="metadata" datetime={p.date}>{formatDate(p.date)}</time>
+  <Content />
+</Reading>

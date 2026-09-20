@@ -1,0 +1,23 @@
+---
+import { site } from '../lib/settings';
+import Icon from './Icon.astro';
+---
+<dialog class="image-viewer" data-count-label={site.viewer.count} data-expand-label={site.viewer.expand} data-fallback-alt={site.viewer.fallbackAlt} aria-label={site.viewer.label}>
+  <div class="viewer-shell">
+    <div class="viewer-toolbar">
+      <span class="viewer-count" aria-live="polite" aria-atomic="true"></span>
+      <a class="viewer-original" target="_blank" rel="noopener">{site.viewer.original} <Icon name="external" /></a>
+      <button type="button" class="viewer-close" aria-label={site.viewer.closeLabel} autofocus>{site.viewer.close} <Icon name="plus" /></button>
+    </div>
+    <figure class="viewer-figure">
+      <div class="viewer-stage"><img class="viewer-image" alt="" /><p class="viewer-error" role="status" hidden>{site.viewer.error}</p></div>
+      <figcaption class="viewer-caption" aria-live="polite" aria-atomic="true"></figcaption>
+    </figure>
+    <div class="viewer-navigation">
+      <button type="button" class="viewer-previous" aria-label={site.viewer.previousLabel}><Icon name="arrow" /><span>{site.viewer.previous}</span></button>
+      <span class="viewer-help">{site.viewer.help}</span>
+      <button type="button" class="viewer-next" aria-label={site.viewer.nextLabel}><span>{site.viewer.next}</span><Icon name="arrow" /></button>
+    </div>
+  </div>
+</dialog>
+<script src="../scripts/image-viewer.ts"></script>

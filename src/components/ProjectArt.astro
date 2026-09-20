@@ -1,0 +1,7 @@
+---
+import { site } from '../lib/settings';
+import Icon from './Icon.astro';
+interface Props { name: string; image?: string; alt?: string }
+const { name, image, alt } = Astro.props;
+---
+{image ? <img src={image} alt={alt || ''} loading="lazy" width="1100" height="480" /> : <div class="dataset-art"><span class="notebook-stack"><Icon name="file" /><Icon name="code" /><Icon name={name === 'DistilKaggle' ? 'database' : 'external'} /></span><span>{name}</span><small>{name === 'DistilKaggle' ? site.labels.distilArtwork : site.labels.projectOverview}</small></div>}

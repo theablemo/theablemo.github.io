@@ -1,0 +1,35 @@
+---
+import { site } from '../lib/settings';
+import Site from './Site.astro';
+import Icon from '../components/Icon.astro';
+import Footer from '../components/Footer.astro';
+import MediaFigure from '../components/MediaFigure.astro';
+import ImageViewer from '../components/ImageViewer.astro';
+interface Media { src: string; alt: string; caption?: string; width?: number; height?: number }
+interface Props {
+  title: string; description: string; deck?: string;
+  archive: string; archiveLabel: string; cover?: Media; gallery?: Media[]; sample?: boolean;
+}
+const { title, description, deck = description, archive, archiveLabel, cover, gallery = [], sample = false } = Astro.props;
+---
+<Site title={title} description={description}>
+  <main class="page reading-page" id="main" tabindex="-1">
+    <a class="back-link" href={archive}><Icon name="arrow" />{archiveLabel}</a>
+    <article data-image-gallery>
+      <header class="entry-header">
+        <h1>{title}</h1>
+        <p class="deck">{deck}</p>
+        <div class="entry-meta"><slot name="metadata" />{sample && <span class="sample-label">{site.labels.sample}</span>}</div>
+      </header>
+      {cover && <MediaFigure {...cover} eager />}
+      <div class="body-copy"><slot /></div>
+      {gallery.length > 0 && <section class="entry-gallery" aria-labelledby="gallery-title">
+        <div class="gallery-heading"><h2 id="gallery-title">{site.labels.gallery}</h2><p>{site.labels.galleryHelp}</p></div>
+        <div class="gallery-grid">{gallery.map(photo => <MediaFigure {...photo} />)}</div>
+      </section>}
+    </article>
+    <nav class="entry-navigation" aria-label={site.accessibility.continue}><a class="back-link" href={archive}><Icon name="arrow" />{archiveLabel}</a></nav>
+    <Footer />
+  </main>
+  <ImageViewer />
+</Site>

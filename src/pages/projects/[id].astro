@@ -1,0 +1,20 @@
+---
+import { site } from '../../lib/settings';
+import { render } from 'astro:content';
+import { getPublishedProjects } from '../../lib/collections';
+import Reading from '../../layouts/Reading.astro';
+import Resources from '../../components/Resources.astro';
+import Venue from '../../components/Venue.astro';
+export async function getStaticPaths() {
+  return (await getPublishedProjects()).map(entry => ({ params: { id: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const p = entry.data;
+---
+<Reading title={p.name} description={p.description} deck={p.tagline} archive="/projects/" archiveLabel={site.labels.allWork}
+  cover={(p.cover || p.image) ? { src: p.cover || p.image!, alt: p.cover ? (p.coverAlt || '') : (p.alt || ''), caption: p.coverCaption, width: p.coverWidth, height: p.coverHeight } : undefined}
+  gallery={p.gallery}>
+  <div slot="metadata" class="project-metadata">{p.venue && <Venue name={p.venue} />}<Resources items={p.resources} /></div>
+  <Content />
+</Reading>

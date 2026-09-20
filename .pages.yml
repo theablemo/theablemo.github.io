@@ -1,0 +1,906 @@
+media:
+  input: public/assets/uploads
+  output: /assets/uploads
+components:
+  gallery-image:
+    type: object
+    fields:
+      - name: src
+        label: Image
+        type: image
+        required: true
+      - name: alt
+        label: Image description
+        type: string
+        required: true
+      - name: caption
+        label: Caption or credit
+        type: text
+      - name: width
+        label: Original width (pixels)
+        type: number
+        options:
+          min: 1
+      - name: height
+        label: Original height (pixels)
+        type: number
+        options:
+          min: 1
+  resource:
+    type: object
+    fields:
+      - name: label
+        type: string
+        required: true
+      - name: url
+        type: string
+        required: true
+      - name: icon
+        type: select
+        options:
+          values:
+            - external
+            - arrow
+            - file
+            - github
+            - play
+            - database
+            - mail
+            - linkedin
+            - scholar
+  credential:
+    type: object
+    fields:
+      - name: label
+        type: string
+        required: true
+      - name: detail
+        type: string
+        required: true
+      - name: url
+        type: string
+        required: true
+      - name: icon
+        type: select
+        options:
+          values:
+            - briefcase
+            - degree
+            - code
+  avatar-scene:
+    type: object
+    fields:
+      - name: recipe
+        label: Path recipe
+        type: select
+        required: true
+        options:
+          values:
+            - timeline
+            - header
+            - perch
+            - finish
+      - name: descent
+        label: Descent to next section
+        type: select
+        required: true
+        options:
+          values:
+            - abseil
+            - elevator
+            - crawl
+            - crawl-front
+            - slide
+            - parachute
+      - name: gesture
+        label: Resting gesture
+        type: select
+        required: true
+        options:
+          values:
+            - idle
+            - curious
+            - wave
+content:
+  - name: site
+    label: Site wording, navigation & footer
+    type: file
+    path: src/data/site.json
+    format: json
+    fields:
+      - name: titleSuffix
+        label: Title Suffix
+        type: string
+      - name: showFooter
+        label: Show Footer
+        type: boolean
+        default: true
+      - name: showCVLink
+        label: Show C V Link
+        type: boolean
+        default: true
+      - name: navigation
+        label: Navigation
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: href
+            label: Href
+            type: string
+      - name: labels
+        label: Labels
+        type: object
+        fields:
+          - name: now
+            label: Now
+            type: string
+          - name: previously
+            label: Previously
+            type: string
+          - name: basedIn
+            label: Based In
+            type: string
+          - name: email
+            label: Email
+            type: string
+          - name: cv
+            label: Cv
+            type: string
+          - name: news
+            label: News
+            type: string
+          - name: service
+            label: Service
+            type: string
+          - name: industry
+            label: Industry
+            type: string
+          - name: academia
+            label: Academia
+            type: string
+          - name: key
+            label: Key
+            type: string
+          - name: allWork
+            label: All Work
+            type: string
+          - name: allNotes
+            label: All Notes
+            type: string
+          - name: scholar
+            label: Scholar
+            type: string
+          - name: paper
+            label: Paper
+            type: string
+          - name: project
+            label: Project
+            type: string
+          - name: backHome
+            label: Back Home
+            type: string
+          - name: backIntro
+            label: Back Intro
+            type: string
+          - name: education
+            label: Education
+            type: string
+          - name: experience
+            label: Experience
+            type: string
+          - name: publications
+            label: Publications
+            type: string
+          - name: downloadResume
+            label: Download Resume
+            type: string
+          - name: sample
+            label: Sample
+            type: string
+          - name: gallery
+            label: Gallery
+            type: string
+          - name: galleryHelp
+            label: Gallery Help
+            type: string
+          - name: footer
+            label: Footer
+            type: string
+          - name: backTop
+            label: Back Top
+            type: string
+          - name: projectOverview
+            label: Project Overview
+            type: string
+          - name: distilArtwork
+            label: Distil Artwork
+            type: string
+      - name: work
+        label: Work
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: string
+          - name: intro
+            label: Intro
+            type: string
+          - name: empty
+            label: Empty
+            type: string
+      - name: writing
+        label: Writing
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: string
+          - name: intro
+            label: Intro
+            type: string
+          - name: empty
+            label: Empty
+            type: string
+      - name: cv
+        label: Cv
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+      - name: notFound
+        label: Not Found
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: heading
+            label: Heading
+            type: string
+          - name: description
+            label: Description
+            type: string
+          - name: back
+            label: Back
+            type: string
+      - name: accessibility
+        label: Accessibility
+        type: object
+        fields:
+          - name: skip
+            label: Skip
+            type: string
+          - name: introduction
+            label: Introduction
+            type: string
+          - name: contact
+            label: Contact
+            type: string
+          - name: navigation
+            label: Navigation
+            type: string
+          - name: positions
+            label: Positions
+            type: string
+          - name: quickLinks
+            label: Quick Links
+            type: string
+          - name: home
+            label: Home
+            type: string
+          - name: backTop
+            label: Back Top
+            type: string
+          - name: details
+            label: Details
+            type: string
+          - name: highlights
+            label: Highlights
+            type: string
+          - name: resources
+            label: Resources
+            type: string
+          - name: explore
+            label: Explore
+            type: string
+          - name: continue
+            label: Continue
+            type: string
+          - name: lightMode
+            label: Light Mode
+            type: string
+          - name: darkMode
+            label: Dark Mode
+            type: string
+          - name: showKey
+            label: Show Key
+            type: string
+          - name: hideKey
+            label: Hide Key
+            type: string
+          - name: avatar
+            label: Avatar
+            type: string
+          - name: photograph
+            label: Photograph
+            type: string
+          - name: motionOn
+            label: Motion On
+            type: string
+          - name: motionOff
+            label: Motion Off
+            type: string
+          - name: motionReduced
+            label: Motion Reduced
+            type: string
+          - name: motionPreference
+            label: Motion Preference
+            type: string
+          - name: motionToggle
+            label: Motion Toggle
+            type: string
+      - name: viewer
+        label: Viewer
+        type: object
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: original
+            label: Original
+            type: string
+          - name: close
+            label: Close
+            type: string
+          - name: closeLabel
+            label: Close Label
+            type: string
+          - name: error
+            label: Error
+            type: string
+          - name: previous
+            label: Previous
+            type: string
+          - name: previousLabel
+            label: Previous Label
+            type: string
+          - name: next
+            label: Next
+            type: string
+          - name: nextLabel
+            label: Next Label
+            type: string
+          - name: help
+            label: Help
+            type: string
+          - name: count
+            type: string
+          - name: expand
+            type: string
+          - name: fallbackAlt
+            type: string
+          - name: view
+            type: string
+  - name: homepage
+    label: Homepage sections & previews
+    type: file
+    path: src/data/homepage.json
+    format: json
+    fields:
+      - name: highlight
+        label: Highlight
+        type: string
+      - name: workLimit
+        label: Work Limit
+        type: number
+        options:
+          min: 0
+        description: 0 hides this preview; use whole numbers. Archives still show all published entries.
+        required: true
+      - name: notesLimit
+        label: Notes Limit
+        type: number
+        options:
+          min: 0
+        description: 0 hides this preview; use whole numbers. Archives still show all published entries.
+        required: true
+      - name: newsLimit
+        label: News Limit
+        type: number
+        options:
+          min: 0
+        description: 0 hides this preview; use whole numbers. Archives still show all published entries.
+        required: true
+      - name: showNews
+        label: Show News
+        type: boolean
+        default: true
+      - name: showService
+        label: Show Service
+        type: boolean
+        default: true
+      - name: showAvatar
+        label: Show Avatar
+        type: boolean
+        default: true
+      - name: sections
+        label: Sections
+        type: object
+        list: true
+        fields:
+          - name: id
+            label: Id
+            type: select
+            options:
+              values:
+                - experience
+                - work
+                - publications
+                - writing
+          - name: title
+            label: Title
+            type: string
+          - name: navLabel
+            label: Nav Label
+            type: string
+          - name: icon
+            label: Icon
+            type: string
+          - name: order
+            label: Order
+            type: number
+            description: Lower values appear first. Default sections use 10, 20, 30, 40.
+          - name: enabled
+            label: Enabled
+            type: boolean
+            default: true
+        description: Change titles, hide sections, or change order. Use Custom homepage sections to add Markdown sections.
+  - name: avatar-route
+    label: Avatar paths
+    type: file
+    path: src/data/avatar-route.json
+    format: json
+    fields:
+      - name: defaultRecipe
+        label: Path for new sections
+        type: select
+        options:
+          values:
+            - perch
+            - header
+      - name: scenes
+        label: Homepage sections
+        type: object
+        fields:
+          - name: experience
+            label: Experience
+            component: avatar-scene
+          - name: work
+            label: Selected work
+            component: avatar-scene
+          - name: publications
+            label: Publications
+            component: avatar-scene
+          - name: writing
+            label: Notes along the way
+            component: avatar-scene
+          - name: contact
+            label: Contact
+            component: avatar-scene
+  - name: profile
+    label: Profile & links
+    type: file
+    path: src/data/profile.json
+    format: json
+    fields:
+      - name: name
+        type: string
+        required: true
+      - name: firstName
+        label: First name
+        type: string
+        required: true
+      - name: lastName
+        label: Last name
+        type: string
+        required: true
+      - name: email
+        type: string
+        required: true
+      - name: location
+        type: string
+        required: false
+      - name: description
+        label: Search description
+        type: text
+        required: true
+      - name: resumeUrl
+        label: Public résumé PDF URL
+        type: string
+      - name: now
+        label: Now
+        component: credential
+        list: true
+      - name: previously
+        label: Previously
+        component: credential
+        list: true
+      - name: socials
+        label: Profile links
+        component: resource
+        list: true
+      - name: education
+        type: object
+        list: true
+        fields:
+          - name: degree
+            type: string
+          - name: organization
+            type: string
+          - name: date
+            type: string
+      - name: service
+        label: Teaching & service
+        type: string
+        list: true
+      - name: portrait
+        label: Portrait image
+        type: image
+      - name: portraitAlt
+        label: Portrait description
+        type: string
+  - name: introduction
+    label: Introduction
+    type: file
+    path: src/content/introduction.md
+    format: yaml-frontmatter
+    fields:
+      - name: body
+        type: rich-text
+  - name: experience
+    label: Experience
+    type: collection
+    path: src/content/experience
+    format: yaml-frontmatter
+    view:
+      primary: organization
+      sort:
+        - order
+        - organization
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: organization
+        type: string
+        required: true
+      - name: organizationUrl
+        label: Organization website
+        type: string
+      - name: logo
+        label: Organization logo
+        type: image
+      - name: role
+        type: string
+        required: true
+      - name: date
+        label: Display dates
+        type: string
+        required: true
+      - name: order
+        type: number
+        required: true
+      - name: kind
+        type: select
+        required: true
+        options:
+          values:
+            - industry
+            - academia
+      - name: body
+        label: Details (bullet points)
+        type: rich-text
+      - name: highlights
+        label: Highlight links
+        component: resource
+        list: true
+      - name: draft
+        type: boolean
+        default: true
+    subfolders: false
+    filename: "{primary}.md"
+  - name: projects
+    label: Work
+    type: collection
+    path: src/content/projects
+    format: yaml-frontmatter
+    view:
+      primary: name
+      fields:
+        - name
+        - year
+        - draft
+      sort:
+        - year
+        - date
+        - order
+        - name
+      default:
+        sort: year
+        order: desc
+    fields:
+      - name: name
+        type: string
+        required: true
+      - name: tagline
+        type: string
+        required: true
+      - name: description
+        type: text
+        required: true
+      - name: order
+        label: Tie-break order (lower first)
+        type: number
+        default: 0
+      - name: year
+        type: string
+        required: true
+      - name: date
+        label: Optional project date (YYYY-MM-DD)
+        type: string
+      - name: venue
+        type: string
+      - name: image
+        label: Card thumbnail
+        type: image
+      - name: alt
+        label: Thumbnail description
+        type: string
+      - name: cover
+        label: Header image (defaults to thumbnail)
+        type: image
+      - name: coverAlt
+        label: Header image description
+        type: string
+      - name: coverCaption
+        label: Header caption or credit
+        type: text
+      - name: coverWidth
+        label: Header width (pixels)
+        type: number
+        options:
+          min: 1
+      - name: coverHeight
+        label: Header height (pixels)
+        type: number
+        options:
+          min: 1
+      - name: gallery
+        label: Gallery images
+        component: gallery-image
+        list: true
+      - name: resources
+        component: resource
+        list: true
+      - name: draft
+        type: boolean
+        default: true
+        description: Only visible in local draft preview until this is turned off.
+      - name: body
+        type: rich-text
+    subfolders: false
+    filename: "{primary}.md"
+  - name: publications
+    label: Publications
+    type: file
+    path: src/data/publications.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: authors
+        type: string
+        list: true
+        required: true
+      - name: year
+        type: string
+        required: true
+      - name: venue
+        type: string
+        required: true
+      - name: paper
+        type: string
+        required: true
+      - name: id
+        label: Matching project filename (without .md)
+        type: string
+  - name: news
+    label: News
+    type: file
+    path: src/data/news.json
+    format: json
+    list: true
+    fields:
+      - name: date
+        label: Date (YYYY or YYYY-MM)
+        type: string
+        required: true
+      - name: text
+        type: text
+        required: true
+      - name: url
+        type: string
+        required: false
+  - name: posts
+    label: Notes
+    type: collection
+    path: src/content/posts
+    format: yaml-frontmatter
+    view:
+      primary: title
+      fields:
+        - title
+        - date
+        - draft
+      sort:
+        - date
+        - title
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: description
+        type: text
+        required: true
+      - name: date
+        label: Date (YYYY-MM-DD)
+        type: string
+        required: true
+      - &a1
+        name: draft
+        type: boolean
+        default: true
+        description: Only visible in local draft preview until this is turned off.
+      - name: sample
+        label: Show sample label
+        type: boolean
+        default: false
+      - &a2
+        name: cover
+        label: Header image
+        type: image
+      - &a3
+        name: coverAlt
+        label: Header image description
+        type: string
+      - &a4
+        name: coverCaption
+        label: Header caption or credit
+        type: text
+      - &a5
+        name: coverWidth
+        label: Header width (pixels)
+        type: number
+        options:
+          min: 1
+      - &a6
+        name: coverHeight
+        label: Header height (pixels)
+        type: number
+        options:
+          min: 1
+      - &a7
+        name: gallery
+        label: Gallery images
+        component: gallery-image
+        list: true
+      - &a8
+        name: body
+        type: rich-text
+    subfolders: false
+    filename: "{primary}.md"
+  - name: sections
+    label: Custom homepage sections
+    type: collection
+    path: src/content/sections
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    subfolders: false
+    view:
+      primary: title
+      fields:
+        - title
+        - draft
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: navLabel
+        label: Menu label (empty hides menu link)
+        type: string
+      - name: icon
+        type: string
+        default: file
+      - name: order
+        type: number
+        default: 50
+      - name: draft
+        type: boolean
+        default: true
+      - name: body
+        type: rich-text
+  - name: pages
+    label: Standalone pages
+    type: collection
+    path: src/content/pages
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    subfolders: false
+    view:
+      primary: title
+      fields:
+        - title
+        - draft
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: description
+        type: text
+      - *a1
+      - *a2
+      - *a3
+      - *a4
+      - *a5
+      - *a6
+      - *a7
+      - *a8
+  - name: venues
+    label: Conference artwork & links
+    type: file
+    path: src/data/venues.json
+    format: json
+    list: true
+    fields:
+      - name: name
+        type: string
+        required: true
+      - name: style
+        type: select
+        options:
+          values:
+            - uist
+            - cui
+            - chi
+            - msr
+            - custom
+      - name: url
+        type: string
+      - name: image
+        type: image
+      - name: lightImage
+        type: image
+      - name: width
+        type: number
+      - name: height
+        type: number
+  - name: avatar-settings
+    label: Avatar outfits & timing (JSON)
+    type: file
+    path: src/data/avatar-settings.json
+    format: code

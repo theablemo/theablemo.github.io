@@ -1,0 +1,61 @@
+---
+import '../styles/site.css';
+import '../styles/content.css';
+import Icon from '../components/Icon.astro';
+import { profile, site } from '../lib/settings';
+import { getHomeSections, previewDrafts } from '../lib/collections';
+interface Props { title?: string; description?: string; home?: boolean }
+const { title, description = profile.description, home = false } = Astro.props;
+const navigation = home ? (await getHomeSections()).filter(s => s.navLabel).map(s => ({ href: `#${s.id}`, label: s.navLabel })) : site.navigation;
+const currentPath = `${Astro.url.pathname.replace(/\/+$/, '')}/`;
+const currentLink = (href: string) => home ? undefined
+  : currentPath === href ? 'page'
+  : href !== '/' && currentPath.startsWith(href) ? 'location'
+  : undefined;
+---
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#131e24" />
+    <meta property="og:title" content={title ? `${title} — ${profile.name}` : profile.name} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <title>{title ? `${title} — ${profile.name}` : `${profile.name} — ${site.titleSuffix}`}</title>
+    <link rel="icon" href="/favicon.ico?v=brick-1" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="/favicon-16.png?v=brick-1" type="image/png" sizes="16x16" />
+    <link rel="icon" href="/favicon-32.png?v=brick-1" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg?v=brick-1" type="image/svg+xml" sizes="any" />
+    <link rel="preload" href="/assets/fonts/schibsted.ttf" as="font" type="font/ttf" crossorigin />
+    <script is:inline>
+      try { const theme = localStorage.getItem('portfolio-theme') || localStorage.getItem('portfolio-study-theme'); if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme; } catch {}
+    </script>
+  </head>
+  <body id="top" tabindex="-1" class:list={{ 'is-home': home }}>
+    {previewDrafts && <aside class="draft-preview" role="status">Local draft preview — unpublished content is visible here. Production builds exclude drafts.</aside>}
+    <a class="skip" href="#main">{site.accessibility.skip}</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="header-identity">
+          {home ? <div class="identity-dock" aria-hidden="true"></div> : <a class="identity-dock reading-dock" href="/" aria-label={`${profile.name}, ${site.accessibility.home}`}>{profile.portrait && <img src={profile.portrait} width="38" height="38" alt="" />}<span>{profile.firstName}<small>{profile.lastName}</small></span></a>}
+          <div class="header-roles" aria-label={site.accessibility.positions} inert={home} aria-hidden={home ? 'true' : undefined}>
+            <div class="role-entries">{profile.now.map((role, index) => <a href={role.url} class="header-role" data-active={index === 0 ? 'true' : 'false'} hidden={index > 0} title={role.detail}>{role.label}</a>)}</div>
+          </div>
+        </div>
+        <nav aria-label={site.accessibility.navigation}>
+          {navigation.map(n => <a href={n.href} aria-current={currentLink(n.href)}>{n.label}</a>)}
+          <button class="theme-toggle" id="theme-toggle" data-light-label={site.accessibility.lightMode} data-dark-label={site.accessibility.darkMode} aria-label={site.accessibility.lightMode} hidden><span class="on-dark"><Icon name="sun" /></span><span class="on-light"><Icon name="moon" /></span></button>
+        </nav>
+        <div class="header-links" aria-label={site.accessibility.quickLinks}>
+          <a href={`mailto:${profile.email}`}><Icon name="mail" /><span>{site.labels.email}</span></a>
+          {home && site.showCVLink && <a href={profile.resumeUrl || '/cv/'}><Icon name="file" /><span>{site.labels.cv}</span></a>}
+        </div>
+      </div>
+    </header>
+    <slot />
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

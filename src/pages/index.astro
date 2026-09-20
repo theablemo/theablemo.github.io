@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import HomeSections from '../components/HomeSections.astro';
+import Site from '../layouts/Site.astro';
+import Icon from '../components/Icon.astro';
+import Footer from '../components/Footer.astro';
+import { Content as Introduction } from '../content/introduction.md';
+import { profile, homepage, site, news } from '../lib/settings';
+import { formatDate } from '../lib/content';
+const images = import.meta.glob<{ default: ImageMetadata }>('/public/assets/**/*.{jpg,jpeg,png,webp}');
+const portrait = images[`/public${profile.portrait}`] ? (await images[`/public${profile.portrait}`]()).default : undefined;
+const avatarEnabled = homepage.showAvatar && site.showFooter;
+---
+<Site home>
+  <main class="page" id="main" tabindex="-1">
+    <section class="intro" id="home" aria-label={site.accessibility.introduction}>
+      <div class="profile">
+        <div class="identity-anchor">
+          <div class="identity-lockup">
+            {profile.portrait && <button class="portrait" id="portrait" disabled={!avatarEnabled} data-avatar-label={site.accessibility.avatar} data-photo-label={site.accessibility.photograph} aria-label={avatarEnabled ? site.accessibility.avatar : profile.portraitAlt} aria-pressed="false" data-avatar="false">
+              {portrait ? <Image class="photograph" src={portrait} alt={profile.portraitAlt} widths={[124, 248, 372]} sizes="132px" width={124} height={124} format="webp" fetchpriority="high" loading="eager" /> : <img class="photograph" src={profile.portrait} alt={profile.portraitAlt} width="124" height="124" fetchpriority="high" loading="eager" />}
+              <canvas class="avatar" width="96" height="96" aria-hidden="true"></canvas>
+            </button>}
+            <h1><a href="#home" aria-label={`${profile.name}, ${site.accessibility.backTop}`}>{profile.firstName}<span>{profile.lastName}</span></a></h1>
+          </div>
+        </div>
+        <dl class="credentials">
+          {[{ label: site.labels.now, items: profile.now }, { label: site.labels.previously, items: profile.previously }].filter(row => row.items.length).map(row => <div class="credential-row"><dt>{row.label}</dt><dd>{row.items.map(item => <a href={item.url} title={item.detail} aria-label={item.detail}><Icon name={item.icon} /><span>{item.label}</span></a>)}</dd></div>)}
+        </dl>
+        <div class="social-links" aria-label={site.accessibility.contact}>
+          {profile.socials.map(s => <a href={s.url}><Icon name={s.icon} /><span>{s.label}</span></a>)}
+          {site.showCVLink && <a href={profile.resumeUrl || '/cv/'}><Icon name="file" /><span>{site.labels.cv}</span></a>}
+        </div>
+        {profile.location && <p class="location"><Icon name="tree" />{site.labels.basedIn} {profile.location}</p>}
+      </div>
+      <div class="intro-copy"><Introduction />{homepage.highlight.trim() && <p class="intro-highlight"><strong>{homepage.highlight}</strong></p>}</div>
+      {homepage.showNews && homepage.newsLimit > 0 && news.length > 0 && <section class="news" aria-labelledby="news-title">
+        <h2 id="news-title">{site.labels.news}</h2>
+        <ul>{[...news].sort((a,b) => b.date.localeCompare(a.date)).slice(0,homepage.newsLimit).map(n => <li><time datetime={n.date}>{formatDate(n.date)}</time>{n.url ? <a href={n.url}>{n.text}</a> : <span>{n.text}</span>}</li>)}</ul>
+      </section>}
+    </section>
+
+    <HomeSections />
+    <Footer avatarMotion={avatarEnabled} />
+  </main>
+  {avatarEnabled && <div id="avatar-journey" class="avatar-journey" aria-hidden="true" hidden>
+    <svg class="avatar-rope-layer" width="100%" height="100%">
+      <defs><clipPath id="avatar-exit-mask" clipPathUnits="userSpaceOnUse"><circle class="avatar-exit-circle" r="0" /><rect class="avatar-exit-opening" x="0" y="0" width="100%" height="100%" /></clipPath></defs>
+      <path class="avatar-rope" d="" /><circle class="avatar-rope-anchor" r="3" /><path class="avatar-platform" d="" />
+      <g class="avatar-parachute" style="display:none">
+        <path class="avatar-parachute-lines" d="" />
+        <g class="avatar-parachute-sail">
+          <path class="avatar-parachute-canopy" d="M -108 -122 V -142 H -96 V -158 H -76 V -170 H -50 V -180 H -24 V -184 H 24 V -180 H 50 V -170 H 76 V -158 H 96 V -142 H 108 V -122 L 72 -130 L 36 -122 L 0 -130 L -36 -122 L -72 -130 Z" />
+          <path class="avatar-parachute-panel" d="M -24 -183 H 24 L 36 -122 L 0 -130 L -36 -122 Z" />
+          <path class="avatar-parachute-seams" d="M -50 -179 L -72 -130 M -24 -183 L -36 -122 M 24 -183 L 36 -122 M 50 -179 L 72 -130" />
+        </g>
+      </g>
+    </svg>
+    <canvas width="128" height="144"></canvas>
+    <canvas class="avatar-handoff" width="96" height="96" hidden></canvas>
+  </div>}
+  <script src="../scripts/avatar/index.ts"></script>
+</Site>

@@ -1,0 +1,19 @@
+---
+import { site } from '../lib/settings';
+import { getExperience } from '../lib/collections';
+import Site from '../layouts/Site.astro';
+import Icon from '../components/Icon.astro';
+import Resources from '../components/Resources.astro';
+import Footer from '../components/Footer.astro';
+import { profile } from '../lib/settings';
+import { publications } from '../lib/settings';
+const experience = await getExperience();
+---
+<Site title={site.cv.title}><main class="page reading-page cv-page" id="main" tabindex="-1">
+  <a class="back-link" href="/#home"><Icon name="arrow" />{site.labels.backIntro}</a><h1>{profile.name}</h1><p class="deck">{site.cv.title}</p><Resources items={profile.socials} />
+  {profile.resumeUrl && <a class="download-link" href={profile.resumeUrl}><Icon name="file" />{site.labels.downloadResume}</a>}
+  <div class="body-copy">{experience.length > 0 && <h2>{site.labels.experience}</h2>}{experience.map(({ data:e, Content }) => <section class="cv-role"><h3>{e.organizationUrl ? <a href={e.organizationUrl}>{e.organization}</a> : e.organization}</h3><p>{e.role} · {e.date}</p><Content /></section>)}
+  {profile.education.length > 0 && <h2>{site.labels.education}</h2>}{profile.education.map(e => <section class="cv-role"><h3>{e.organization}</h3><p>{e.degree}<br />{e.date}</p></section>)}
+  {publications.length > 0 && <><h2>{site.labels.publications}</h2><ol class="cv-publications">{publications.map(p => <li><a href={p.paper}>{p.title}</a><p>{p.authors.join(', ')} · {p.venue}</p></li>)}</ol></>}
+  {profile.service.length > 0 && <><h2>{site.labels.service}</h2><ul>{profile.service.map(s => <li>{s}</li>)}</ul></>}</div><Footer />
+</main></Site>

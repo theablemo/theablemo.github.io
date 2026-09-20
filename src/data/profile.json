@@ -1,0 +1,72 @@
+{
+  "name": "Mohammad Abolnejadian",
+  "firstName": "Mohammad",
+  "lastName": "Abolnejadian",
+  "email": "mohammad.abolnejadian@uwaterloo.ca",
+  "location": "Ontario, Canada",
+  "description": "Mohammad Abolnejadian builds AI tools that help people make sense of complex information and make informed decisions.",
+  "resumeUrl": "",
+  "now": [
+    {
+      "label": "Applied AI Scientist · Verily",
+      "detail": "Applied AI Scientist at Verily",
+      "url": "https://verily.com/",
+      "icon": "briefcase"
+    },
+    {
+      "label": "Master’s CS HCI · UWaterloo",
+      "detail": "M.Math. in Computer Science at the University of Waterloo, in progress",
+      "url": "https://uwaterloo.ca/",
+      "icon": "degree"
+    }
+  ],
+  "previously": [
+    {
+      "label": "B.Sc. Computer Engineering · Sharif University of Technology",
+      "detail": "B.Sc. in Computer Engineering at Sharif University of Technology",
+      "url": "https://en.sharif.edu/",
+      "icon": "degree"
+    }
+  ],
+  "socials": [
+    {
+      "label": "Email",
+      "url": "mailto:mohammad.abolnejadian@uwaterloo.ca",
+      "icon": "mail"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/mohammad-abolnejadian/",
+      "icon": "linkedin"
+    },
+    {
+      "label": "Scholar",
+      "url": "https://scholar.google.com/citations?user=PS_CX0AAAAAJ",
+      "icon": "scholar"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/theablemo",
+      "icon": "github"
+    }
+  ],
+  "education": [
+    {
+      "degree": "M.Math. in Computer Science",
+      "organization": "University of Waterloo",
+      "date": "2025–2027 (expected)"
+    },
+    {
+      "degree": "B.Sc. in Computer Engineering",
+      "organization": "Sharif University of Technology",
+      "date": "2019–2024"
+    }
+  ],
+  "service": [
+    "Teaching assistant at Waterloo and Sharif, across more than ten computer science courses. 2020–present.",
+    "Graduate student representative, School of Computer Science Council. 2025–present.",
+    "Mentor, Women in Mathematics Directed Reading Program at Waterloo. January–April 2026."
+  ],
+  "portrait": "/assets/portrait.jpg",
+  "portraitAlt": "Mohammad Abolnejadian"
+}

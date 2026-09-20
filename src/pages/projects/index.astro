@@ -1,0 +1,17 @@
+---
+import { site } from '../../lib/settings';
+import Site from '../../layouts/Site.astro';
+import ProjectGrid from '../../components/ProjectGrid.astro';
+import Footer from '../../components/Footer.astro';
+import Icon from '../../components/Icon.astro';
+import { getPublishedProjects } from '../../lib/collections';
+const projects = await getPublishedProjects();
+---
+<Site title={site.work.title} description={site.work.description}>
+  <main class="page archive-page" id="main" tabindex="-1">
+    <a class="back-link" href="/"><Icon name="arrow" />{site.labels.backHome}</a>
+    <header class="archive-heading"><h1>{site.work.title}</h1><p class="deck">{site.work.intro}</p></header>
+    {projects.length ? <ProjectGrid projects={projects} /> : <p class="writing-empty">{site.work.empty}</p>}
+    <Footer />
+  </main>
+</Site>

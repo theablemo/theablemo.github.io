@@ -1,0 +1,30 @@
+{
+  "defaultRecipe": "perch",
+  "scenes": {
+    "experience": {
+      "recipe": "timeline",
+      "gesture": "idle",
+      "descent": "elevator"
+    },
+    "work": {
+      "recipe": "header",
+      "gesture": "idle",
+      "descent": "crawl"
+    },
+    "publications": {
+      "recipe": "header",
+      "gesture": "curious",
+      "descent": "elevator"
+    },
+    "writing": {
+      "recipe": "header",
+      "gesture": "idle",
+      "descent": "slide"
+    },
+    "contact": {
+      "recipe": "finish",
+      "gesture": "wave",
+      "descent": "elevator"
+    }
+  }
+}

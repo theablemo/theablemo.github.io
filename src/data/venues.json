@@ -1,0 +1,38 @@
+[
+  {
+    "name": "UIST ’26",
+    "style": "uist",
+    "url": "https://uist.acm.org/2026/",
+    "image": "/assets/venues/uist-dark.svg",
+    "lightImage": "/assets/venues/uist-light.svg",
+    "width": 66,
+    "height": 18
+  },
+  {
+    "name": "CUI ’25",
+    "style": "cui",
+    "url": "https://cui.acm.org/2025/",
+    "image": "/assets/venues/cui-2025.png",
+    "lightImage": "",
+    "width": 576,
+    "height": 160
+  },
+  {
+    "name": "CHI EA ’24",
+    "style": "chi",
+    "url": "https://chi2024.acm.org/",
+    "image": "/assets/venues/chi.png",
+    "lightImage": "",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "name": "MSR ’24",
+    "style": "msr",
+    "url": "https://2024.msrconf.org/",
+    "image": "/assets/venues/msr.png",
+    "lightImage": "",
+    "width": 7310,
+    "height": 1895
+  }
+]

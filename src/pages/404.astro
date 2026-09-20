@@ -1,0 +1,6 @@
+---
+import { site } from '../lib/settings';
+import Site from '../layouts/Site.astro';
+import Icon from '../components/Icon.astro';
+---
+<Site title={site.notFound.title}><main class="page reading-page not-found" id="main" tabindex="-1"><Icon name="file" /><h1>{site.notFound.heading}</h1><p class="deck">{site.notFound.description}</p><a class="back-link" href="/"><Icon name="arrow" />{site.notFound.back}</a></main></Site>

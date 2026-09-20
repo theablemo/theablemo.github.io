@@ -1,0 +1,16 @@
+---
+import { render } from 'astro:content';
+import { getPublishedPages } from '../../lib/collections';
+import { site } from '../../lib/settings';
+import Reading from '../../layouts/Reading.astro';
+export async function getStaticPaths() {
+  return (await getPublishedPages()).map(entry => ({ params: { id: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const p = entry.data;
+---
+<Reading title={p.title} description={p.description} archive="/" archiveLabel={site.labels.backHome}
+  cover={p.cover ? { src: p.cover, alt: p.coverAlt || '', caption: p.coverCaption, width: p.coverWidth, height: p.coverHeight } : undefined} gallery={p.gallery}>
+  <Content />
+</Reading>

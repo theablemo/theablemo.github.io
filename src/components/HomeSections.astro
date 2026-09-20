@@ -1,0 +1,73 @@
+---
+import Icon from './Icon.astro';
+import Resources from './Resources.astro';
+import Venue from './Venue.astro';
+import ProjectGrid from './ProjectGrid.astro';
+import PostList from './PostList.astro';
+import { profile, homepage, site, publications } from '../lib/settings';
+import { getPublishedProjects, getPublishedPosts, getExperience, getHomeSections } from '../lib/collections';
+const projects = await getPublishedProjects();
+const roles = await getExperience();
+const posts = await getPublishedPosts();
+const sections = await getHomeSections();
+const years = [...new Set(publications.map(p => p.year))].sort().reverse();
+const scholar = profile.socials.find(s => s.icon === 'scholar');
+---
+{sections.map(section => <>
+    {section.id === 'experience' && <>
+    <section class="section experience-section" id={section.id} aria-labelledby={`${section.id}-title`} tabindex="-1">
+      <div class="section-heading">
+        <h2 id={`${section.id}-title`}><Icon name={section.icon} />{section.title}</h2>
+        <div class="timeline-legend" id="timeline-legend" data-expanded="true">
+          <button class="legend-toggle" aria-label={site.accessibility.showKey} data-show-label={site.accessibility.showKey} data-hide-label={site.accessibility.hideKey} aria-expanded="true" aria-controls="legend-labels" hidden><span class="marker industry"></span><span class="marker academia"></span><span class="legend-caption">{site.labels.key}</span></button>
+          <div class="legend-labels" id="legend-labels"><span><i class="marker industry"></i>{site.labels.industry}</span><span><i class="marker academia"></i>{site.labels.academia}</span></div>
+        </div>
+      </div>
+      <div class="timeline">
+        {roles.map(({ id, data: e, Content }) => <article class="experience" data-kind={e.kind}>
+          <i class:list={['timeline-marker', 'marker', e.kind]} aria-hidden="true"></i>
+          <span class="sr-only">{e.kind === 'industry' ? site.labels.industry : site.labels.academia}</span>
+          <div class="experience-row">
+            <span class="experience-date">{e.date}</span>
+            <h3>{e.logo && <img class="org-logo" src={e.logo} width="24" height="24" alt="" loading="lazy" />}{e.organizationUrl ? <a href={e.organizationUrl}>{e.organization}</a> : e.organization}</h3>
+            <details class="experience-disclosure" id={`role-${id}`}>
+              <summary><span>{e.role}</span><span class="sr-only"> at {e.organization}. {site.accessibility.details}</span><Icon name="plus" class="expand" /></summary>
+              <div class="experience-detail"><Content /><Resources items={e.highlights} label={`${e.organization} ${site.accessibility.highlights}`} /></div>
+            </details>
+          </div>
+        </article>)}
+      </div>
+      {homepage.showService && profile.service.length > 0 && <details class="service"><summary><Icon name="degree" />{site.labels.service}<Icon name="plus" class="expand" /></summary><ul>{profile.service.map(item => <li>{item}</li>)}</ul></details>}
+    </section>
+    </>}
+
+    {section.id === 'work' && <>
+    <section class="section work-section" id={section.id} aria-labelledby={`${section.id}-title`} tabindex="-1">
+      <div class="section-heading"><h2 id={`${section.id}-title`}><Icon name={section.icon} />{section.title}</h2><a href="/projects/">{site.labels.allWork} <Icon name="arrow" /></a></div>
+      {projects.length ? <ProjectGrid projects={projects.slice(0, homepage.workLimit)} /> : <p class="writing-empty">{site.work.empty}</p>}
+    </section>
+    </>}
+
+    {section.id === 'publications' && <>
+    <section class="section publications-section" id={section.id} aria-labelledby={`${section.id}-title`} tabindex="-1">
+      <div class="section-heading"><h2 id={`${section.id}-title`}><Icon name={section.icon} />{section.title}</h2><>{scholar && <a href={scholar.url}>{site.labels.scholar} <Icon name="external" /></a>}</></div>
+      <div class="publication-years">{years.map(year => <section class="publication-year" aria-labelledby={`year-${year}`}><h3 id={`year-${year}`}>{year}</h3><div class="year-papers">{publications.filter(p => p.year === year).map(p => {
+        const project = projects.find(project => project.id === p.id);
+        const items = [{ label: site.labels.paper, icon: 'file', url: p.paper }, ...(project ? [{ label: site.labels.project, icon: 'external', url: `/projects/${project.id}/` }, ...project.data.resources.filter(r => r.url !== p.paper)] : [])];
+        return <article class="publication"><div class="publication-copy"><h4><a href={p.paper}>{p.title}</a></h4><p class="authors">{p.authors.map((a,i) => <>{i > 0 && ', '}{a === profile.name ? <strong>{a}</strong> : a}</>)}</p><Resources items={items} label={`${p.title} ${site.accessibility.resources}`} /></div><Venue name={p.venue} compact /></article>;
+      })}</div></section>)}</div>
+    </section>
+    </>}
+
+    {section.id === 'writing' && <>
+    <section class="section writing-section" id={section.id} aria-labelledby={`${section.id}-title`} tabindex="-1">
+      <div class="section-heading"><h2 id={`${section.id}-title`}><Icon name={section.icon} />{section.title}</h2><a href="/writing/">{site.labels.allNotes} <Icon name="arrow" /></a></div>
+      {posts.length > 0 ? <PostList posts={posts.slice(0, homepage.notesLimit)} /> : <p class="writing-empty">{site.writing.empty}</p>}
+    </section>
+    </>}
+
+    {'Content' in section && <section class="section custom-section" id={section.id} aria-labelledby={`${section.id}-title`} tabindex="-1">
+      <div class="section-heading"><h2 id={`${section.id}-title`}><Icon name={section.icon} />{section.title}</h2></div>
+      <div class="body-copy"><section.Content /></div>
+    </section>}
+</>)}

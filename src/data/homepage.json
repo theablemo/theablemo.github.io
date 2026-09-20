@@ -1,0 +1,43 @@
+{
+  "highlight": "I'm actively looking for Research Engineer positions in applied AI, human–computer interaction, and information visualization.",
+  "workLimit": 3,
+  "notesLimit": 3,
+  "newsLimit": 3,
+  "showNews": true,
+  "showService": true,
+  "showAvatar": true,
+  "sections": [
+    {
+      "id": "experience",
+      "title": "Experience",
+      "navLabel": "Experience",
+      "icon": "briefcase",
+      "order": 10,
+      "enabled": true
+    },
+    {
+      "id": "work",
+      "title": "Recent work",
+      "navLabel": "Work",
+      "icon": "code",
+      "order": 20,
+      "enabled": true
+    },
+    {
+      "id": "publications",
+      "title": "Publications",
+      "navLabel": "Publications",
+      "icon": "degree",
+      "order": 30,
+      "enabled": true
+    },
+    {
+      "id": "writing",
+      "title": "Notes along the way",
+      "navLabel": "Writing",
+      "icon": "file",
+      "order": 40,
+      "enabled": true
+    }
+  ]
+}

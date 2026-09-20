@@ -1,0 +1,64 @@
+/* Both side paths reserve room for the full sprite inside the viewport. */
+:root { --avatar-lane: 64px; }
+/* The parachute floats over the introduction without changing its layout. */
+.portrait[data-journey-exit="true"] .avatar { visibility: hidden; }
+.portrait[data-journey-exit="true"] .photograph { visibility: hidden; }
+.avatar-journey .avatar-handoff { border-radius: 50%; }
+.avatar-journey .avatar-handoff[hidden] { display: none; }
+.is-home .page > .section,
+.is-home .page > .footer { padding-left: var(--avatar-lane); }
+.is-home .page > .section:not(.experience-section),
+.is-home .page > .footer { padding-right: 48px; }
+.avatar-journey {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  overflow: hidden;
+  contain: strict;
+}
+.avatar-journey[hidden] { display: none; }
+.avatar-journey canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  image-rendering: pixelated;
+  transform-origin: center center;
+}
+.avatar-rope-layer { position: absolute; inset: 0; overflow: hidden; }
+.avatar-rope { fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-linecap: round; opacity: .65; }
+.avatar-rope-anchor { fill: var(--accent); }
+.avatar-platform { fill: none; stroke: var(--muted); stroke-width: 1.5; opacity: .65; }
+.avatar-parachute-lines { fill: none; stroke: var(--text); stroke-width: 1.8; stroke-linecap: round; }
+.avatar-parachute-canopy { fill: var(--accent); stroke: var(--bg); stroke-width: 2; stroke-linejoin: miter; }
+.avatar-parachute-panel { fill: var(--second); stroke: none; }
+.avatar-parachute-seams { fill: none; stroke: var(--bg); stroke-width: 1.5; opacity: .6; }
+.avatar-motion {
+  display: block;
+  width: fit-content;
+  min-height: 36px;
+  margin-top: 10px;
+  padding: 6px 0;
+  color: var(--muted);
+  font: inherit;
+  font-size: 11px;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 4px;
+}
+.avatar-motion[hidden] { display: none; }
+.avatar-motion:hover { color: var(--text); }
+.avatar-motion[aria-disabled="true"] { cursor: default; text-decoration: none; }
+@media (max-width: 700px) {
+  :root { --avatar-lane: 44px; }
+  .is-home .page > .section:not(.experience-section), .is-home .page > .footer { padding-right: var(--avatar-lane); }
+  .avatar-motion { min-height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .avatar-journey { display: none; }
+  .portrait .avatar { transition: none; }
+}
+@media print {
+  .avatar-journey, .avatar-motion { display: none; }
+  .is-home .page > .section, .is-home .page > .footer { padding-inline: 0; }
+}

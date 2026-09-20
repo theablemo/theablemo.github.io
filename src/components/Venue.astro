@@ -1,0 +1,14 @@
+---
+import Icon from './Icon.astro';
+import venues from '../data/venues.json';
+interface Props { name: string; compact?: boolean }
+const { name, compact = false } = Astro.props;
+const venue = venues.find(v => v.name === name.split(' · ')[0]);
+---
+{venue ? <a class:list={['venue', `venue-${venue.style}`, { compact }]} href={venue.url} aria-label={name}>
+  {venue.image && <span class:list={['venue-mark', `${venue.style}-mark`]}>
+    <img class:list={{ 'on-dark': Boolean(venue.lightImage) }} src={venue.image} alt="" width={venue.width} height={venue.height} loading="lazy" />
+    {venue.lightImage && <img class="on-light" src={venue.lightImage} alt="" width={venue.width} height={venue.height} loading="lazy" />}
+  </span>}
+  <span>{venue.name}</span>
+</a> : <span class:list={['venue', 'venue-fallback', { compact }]}><Icon name="degree" /><span>{name}</span></span>}

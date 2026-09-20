@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="640" viewBox="0 0 1440 640" role="img" aria-labelledby="title description">
+  <title id="title">From a question to a working system</title>
+  <desc id="description">Three connected stages: ask a question, build a prototype, and reflect on what you learn.</desc>
+  <rect width="1440" height="640" rx="16" fill="#1c2b33"/>
+  <g fill="none" stroke="#9ad6d5" stroke-width="3">
+    <rect x="100" y="226" width="320" height="180" rx="12"/>
+    <rect x="560" y="226" width="320" height="180" rx="12"/>
+    <rect x="1020" y="226" width="320" height="180" rx="12"/>
+    <path d="M440 316h100m-14-14 14 14-14 14M900 316h100m-14-14 14 14-14 14"/>
+  </g>
+  <g fill="#eaf1f3" font-family="sans-serif" font-size="36" text-anchor="middle">
+    <text x="260" y="315">Question</text><text x="720" y="315">Prototype</text><text x="1180" y="315">Reflection</text>
+  </g>
+  <g fill="#b0c1c8" font-family="sans-serif" font-size="21" text-anchor="middle">
+    <text x="260" y="358">What would help?</text><text x="720" y="358">Make it tangible.</text><text x="1180" y="358">What did we learn?</text>
+  </g>
+</svg>

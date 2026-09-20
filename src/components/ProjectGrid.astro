@@ -1,0 +1,15 @@
+---
+import { site } from '../lib/settings';
+import type { CollectionEntry } from 'astro:content';
+import ProjectArt from './ProjectArt.astro';
+import Resources from './Resources.astro';
+interface Props { projects: CollectionEntry<'projects'>[] }
+const { projects } = Astro.props;
+---
+<div class="project-grid">
+  {projects.map(({ id, data: p }) => <article class="project">
+    <a class="project-art" href={`/projects/${id}/`} aria-label={`${site.accessibility.explore} ${p.name}`}><ProjectArt name={p.name} image={p.image || p.cover} alt={p.alt || p.coverAlt} /></a>
+    <div class="project-title"><h3><a href={`/projects/${id}/`}>{p.name}</a></h3><span>{p.venue}</span></div>
+    <p>{p.description}</p><Resources items={p.resources} label={`${p.name} ${site.accessibility.resources}`} />
+  </article>)}
+</div>

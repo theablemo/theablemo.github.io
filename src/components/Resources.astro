@@ -1,0 +1,7 @@
+---
+import { site } from '../lib/settings';
+import Icon from './Icon.astro';
+interface Props { items: { label: string; url: string; icon?: string }[]; label?: string }
+const { items, label = site.accessibility.resources } = Astro.props;
+---
+{items.length > 0 && <div class="resources" aria-label={label}>{items.map(item => <a href={item.url}><Icon name={item.icon || 'external'} /><span>{item.label}</span></a>)}</div>}

@@ -1,0 +1,43 @@
+[
+  {
+    "title": "InsightToast: Proactive Information Retrieval & Glanceable Visualization in the Side Channel of Data-Rich Meetings",
+    "authors": ["Mohammad Abolnejadian", "Matthew Brehmer"],
+    "year": "2026",
+    "venue": "UIST ’26",
+    "paper": "https://doi.org/10.1145/3830398.3830522",
+    "id": "insighttoast"
+  },
+  {
+    "title": "AInsight: Augmenting Expert Decision-Making with On-the-Fly Insights Grounded in Historical Data",
+    "authors": [
+      "Mohammad Abolnejadian",
+      "Shakiba Amirshahi",
+      "Matthew Brehmer",
+      "Anamaria Crisan"
+    ],
+    "year": "2025",
+    "venue": "CUI ’25",
+    "paper": "https://doi.org/10.1145/3719160.3737633",
+    "id": "ainsight"
+  },
+  {
+    "title": "DistilKaggle: A Distilled Dataset of Kaggle Jupyter Notebooks",
+    "authors": [
+      "Mojtaba Mostafavi Ghahfarokhi",
+      "Arash Asgari",
+      "Mohammad Abolnejadian",
+      "Abbas Heydarnoori"
+    ],
+    "year": "2024",
+    "venue": "MSR ’24",
+    "paper": "https://doi.org/10.1145/3643991.3644882",
+    "id": "distilkaggle"
+  },
+  {
+    "title": "Leveraging ChatGPT for Adaptive Learning through Personalized Prompt-based Instruction: A CS1 Education Case Study",
+    "authors": ["Mohammad Abolnejadian", "Sharareh Alipour", "Kamyar Taeb"],
+    "year": "2024",
+    "venue": "CHI EA ’24 · Case study",
+    "paper": "https://doi.org/10.1145/3613905.3637148"
+  }
+]
