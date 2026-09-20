@@ -24,7 +24,7 @@ const currentLink = (href: string) => home ? undefined
     <meta property="og:title" content={title ? `${title} — ${profile.name}` : profile.name} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <title>{title ? `${title} — ${profile.name}` : `${profile.name} — ${site.titleSuffix}`}</title>
+    <title>{title ? `${title} — ${profile.name}` : site.titleSuffix ? `${profile.name} — ${site.titleSuffix}` : profile.name}</title>
     <link rel="icon" href="/favicon.ico?v=brick-1" sizes="16x16 32x32 48x48" />
     <link rel="icon" href="/favicon-16.png?v=brick-1" type="image/png" sizes="16x16" />
     <link rel="icon" href="/favicon-32.png?v=brick-1" type="image/png" sizes="32x32" />
