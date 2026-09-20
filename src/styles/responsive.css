@@ -81,9 +81,6 @@
   .project-grid {
     gap: 22px;
   }
-  .publication {
-    gap: 22px;
-  }
   .project-title h3 {
     font-size: 22px;
   }
@@ -168,10 +165,6 @@
   }
   .publication-year {
     grid-template-columns: 48px minmax(0, 1fr);
-    gap: 20px;
-  }
-  .publication {
-    grid-template-columns: minmax(0, 1fr) 80px;
     gap: 20px;
   }
   .publication h4 {
@@ -395,25 +388,11 @@
   .publication-year > h3 {
     font-size: 13px;
   }
-  .publication {
-    grid-template-columns: minmax(0, 1fr) 68px;
-    align-items: start;
-    gap: 16px;
-  }
   .publication h4 {
     font-size: 14px;
     line-height: 1.65;
   }
-  .publication .venue {
-    padding: 3px 0;
-    max-width: 68px;
-    font-size: 12px;
-  }
-  .venue.compact {
-    gap: 8px;
-  }
   .publication .resources {
-    grid-column: 1/-1;
     gap: 0 13px;
   }
   .publication .resources a {
@@ -506,10 +485,6 @@
   }
   .section-heading > a .icon {
     display: none;
-  }
-  .publication {
-    gap: 12px;
-    grid-template-columns: minmax(0, 1fr) 60px;
   }
   .uist-mark,
   .uist-mark img {
@@ -666,4 +641,3 @@
     line-height: 1.5;
   }
 }
-

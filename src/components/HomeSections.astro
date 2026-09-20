@@ -54,7 +54,7 @@ const scholar = profile.socials.find(s => s.icon === 'scholar');
       <div class="publication-years">{years.map(year => <section class="publication-year" aria-labelledby={`year-${year}`}><h3 id={`year-${year}`}>{year}</h3><div class="year-papers">{publications.filter(p => p.year === year).map(p => {
         const project = projects.find(project => project.id === p.id);
         const items = [{ label: site.labels.paper, icon: 'file', url: p.paper }, ...(project ? [{ label: site.labels.project, icon: 'external', url: `/projects/${project.id}/` }, ...project.data.resources.filter(r => r.url !== p.paper)] : [])];
-        return <article class="publication"><div class="publication-copy"><h4><a href={p.paper}>{p.title}</a></h4><p class="authors">{p.authors.map((a,i) => <>{i > 0 && ', '}{a === profile.name ? <strong>{a}</strong> : a}</>)}</p><Resources items={items} label={`${p.title} ${site.accessibility.resources}`} /></div><Venue name={p.venue} compact /></article>;
+        return <article class="publication"><div class="publication-copy"><h4><a href={p.paper}>{p.title}</a>{' '}<Venue name={p.venue} compact /></h4><p class="authors">{p.authors.map((a,i) => <>{i > 0 && ', '}{a === profile.name ? <strong>{a}</strong> : a}</>)}</p><Resources items={items} label={`${p.title} ${site.accessibility.resources}`} /></div></article>;
       })}</div></section>)}</div>
     </section>
     </>}

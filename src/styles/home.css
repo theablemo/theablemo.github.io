@@ -610,12 +610,6 @@ details[open] > summary > .expand {
   display: grid;
   gap: 25px;
 }
-.publication {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 92px;
-  gap: 30px;
-  align-items: center;
-}
 .publication h4 {
   font-size: 15px;
   font-weight: 500;
@@ -623,7 +617,7 @@ details[open] > summary > .expand {
   text-wrap: pretty;
   max-width: 83ch;
 }
-.publication h4 a {
+.publication h4 > a:not(.venue) {
   color: var(--text);
 }
 .authors {
@@ -656,12 +650,15 @@ details[open] > summary > .expand {
   flex-shrink: 0;
 }
 .venue.compact {
-  flex-direction: column;
-  gap: 7px;
-  justify-self: end;
-  padding: 8px;
-  max-width: 92px;
-  text-align: center;
+  gap: 6px;
+  margin-inline-start: 4px;
+  padding: 3px 8px;
+  min-height: 32px;
+  max-width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-weight: 400;
+  vertical-align: middle;
 }
 .venue > span:last-child {
   white-space: nowrap;
