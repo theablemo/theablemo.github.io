@@ -3,8 +3,8 @@
     "title": "InsightToast: Proactive Information Retrieval & Glanceable Visualization in the Side Channel of Data-Rich Meetings",
     "authors": ["Mohammad Abolnejadian", "Matthew Brehmer"],
     "year": "2026",
-    "venue": "UIST ’26",
-    "paper": "https://doi.org/10.1145/3830398.3830522",
+    "venue": "UIST ’26 · Forthcoming",
+    "paper": "https://arxiv.org/abs/2608.31115",
     "id": "insighttoast"
   },
   {
@@ -19,6 +19,13 @@
     "venue": "CUI ’25",
     "paper": "https://doi.org/10.1145/3719160.3737633",
     "id": "ainsight"
+  },
+  {
+    "title": "MoTiCPS: Energy Optimization on Multi-Objective Task Scheduling in IoT-Integrated Cyber-Physical Systems",
+    "authors": ["Abolfazl Younesi", "Elyas Oustad", "Mohammad Abolnejadian", "Mohsen Ansari", "Alireza Ejlali"],
+    "year": "2025",
+    "venue": "IEEE Transactions on Sustainable Computing · 10(4), 744–755",
+    "paper": "https://doi.org/10.1109/TSUSC.2024.3525090"
   },
   {
     "title": "DistilKaggle: A Distilled Dataset of Kaggle Jupyter Notebooks",
@@ -39,5 +46,12 @@
     "year": "2024",
     "venue": "CHI EA ’24 · Case study",
     "paper": "https://doi.org/10.1145/3613905.3637148"
+  },
+  {
+    "title": "Cyrus 2D Simulation Team Description Paper 2018",
+    "authors": ["Nader Zare", "Mohsen Sadeghipour", "Ashkan Keshavarzi", "Mahtab Sarvmeili", "Amin Nikanjam", "Reza Aghayari", "Arad Firouzkoohi", "Mohammad Abolnejad", "Sina Elahimanesh", "Amin Akhgari"],
+    "year": "2018",
+    "venue": "RoboCup 2018 · Team description paper",
+    "paper": "https://archive.robocup.info/Soccer/Simulation/2D/TDPs/RoboCup/2018/CYRUS_SS2D_RC2018_TDP.pdf"
   }
 ]

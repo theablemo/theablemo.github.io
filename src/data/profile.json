@@ -2,7 +2,7 @@
   "name": "Mohammad Abolnejadian",
   "firstName": "Mohammad",
   "lastName": "Abolnejadian",
-  "email": "mohammad.abolnejadian@uwaterloo.ca",
+  "email": "mabolnej@uwaterloo.ca",
   "location": "Ontario, Canada",
   "description": "Mohammad Abolnejadian builds AI tools that help people make sense of complex information and make informed decisions.",
   "resumeUrl": "",
@@ -31,7 +31,7 @@
   "socials": [
     {
       "label": "Email",
-      "url": "mailto:mohammad.abolnejadian@uwaterloo.ca",
+      "url": "mailto:mabolnej@uwaterloo.ca",
       "icon": "mail"
     },
     {
@@ -41,7 +41,7 @@
     },
     {
       "label": "Scholar",
-      "url": "https://scholar.google.com/citations?user=PS_CX0AAAAAJ",
+      "url": "https://scholar.google.com/citations?user=jruapycAAAAJ&hl=en",
       "icon": "scholar"
     },
     {

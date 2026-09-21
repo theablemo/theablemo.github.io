@@ -10,5 +10,5 @@ const venue = venues.find(v => v.name === name.split(' · ')[0]);
     <img class:list={{ 'on-dark': Boolean(venue.lightImage) }} src={venue.image} alt="" width={venue.width} height={venue.height} loading="lazy" />
     {venue.lightImage && <img class="on-light" src={venue.lightImage} alt="" width={venue.width} height={venue.height} loading="lazy" />}
   </span>}
-  <span>{venue.name}</span>
+  <span>{name}</span>
 </a> : <span class:list={['venue', 'venue-fallback', { compact }]}><Icon name="degree" /><span>{name}</span></span>}

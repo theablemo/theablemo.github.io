@@ -1,6 +1,6 @@
 ---
 name: "InsightToast"
-venue: "UIST ’26"
+venue: "UIST ’26 · Forthcoming"
 year: "2026"
 tagline: "Useful information, without leaving the conversation."
 description: "A meeting companion that brings source-grounded text and glanceable visualizations into the flow of a conversation."
@@ -11,7 +11,7 @@ coverWidth: 2200
 coverHeight: 573
 order: 1
 draft: false
-resources: [{"label": "Paper", "icon": "file", "url": "https://doi.org/10.1145/3830398.3830522"}, {"label": "Code", "icon": "github", "url": "https://github.com/ubixgroup/InsightToast"}, {"label": "Demo", "icon": "play", "url": "https://insighttoast.vercel.app/"}]
+resources: [{"label": "Paper", "icon": "file", "url": "https://arxiv.org/abs/2608.31115"}, {"label": "Code", "icon": "github", "url": "https://github.com/ubixgroup/InsightToast"}, {"label": "Demo", "icon": "play", "url": "https://insighttoast.vercel.app/"}]
 ---
 
 ## When should an AI system join a conversation?
