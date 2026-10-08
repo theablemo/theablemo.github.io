@@ -16,7 +16,7 @@ function parse<T>(name: string, schema: z.ZodType<T>, data: unknown): T {
 }
 export const profile = parse('profile', z.object({
   name: text.min(1), firstName: text.min(1), lastName: text, email: z.email(), location: text.default(''),
-  description: text, resumeUrl: link.default(''), portrait: link.default(''), portraitAlt: text.default(''),
+  description: text, resumeUrl: link.default(''), cvUrl: link.default(''), portrait: link.default(''), portraitAlt: text.default(''),
   now: z.array(credential).default([]), previously: z.array(credential).default([]),
   socials: z.array(resource.extend({ homeLabel: text.optional() })).default([]), education: z.array(z.object({ degree: text, organization: text, date: text })).default([]),
   service: z.array(text).default([]),

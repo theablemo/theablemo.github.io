@@ -2,6 +2,7 @@
 import '../styles/site.css';
 import '../styles/content.css';
 import Icon from '../components/Icon.astro';
+import DocumentLinks from '../components/DocumentLinks.astro';
 import { profile, site } from '../lib/settings';
 import { getHomeSections, previewDrafts } from '../lib/collections';
 interface Props { title?: string; description?: string; home?: boolean }
@@ -47,12 +48,12 @@ const currentLink = (href: string) => home ? undefined
           </div>
         </div>
         <nav aria-label={site.accessibility.navigation}>
-          {navigation.filter(n => !cvLink(n.href) || (site.showCVLink && profile.resumeUrl)).map(n => <a href={cvLink(n.href) ? profile.resumeUrl : n.href} download={cvLink(n.href) || undefined} aria-current={currentLink(n.href)}>{n.label}</a>)}
+          {navigation.map(n => cvLink(n.href) ? <DocumentLinks /> : <a href={n.href} aria-current={currentLink(n.href)}>{n.label}</a>)}
           <button class="theme-toggle" id="theme-toggle" data-light-label={site.accessibility.lightMode} data-dark-label={site.accessibility.darkMode} aria-label={site.accessibility.lightMode} hidden><span class="on-dark"><Icon name="sun" /></span><span class="on-light"><Icon name="moon" /></span></button>
         </nav>
         <div class="header-links" aria-label={site.accessibility.quickLinks}>
           <a href={`mailto:${profile.email}`}><Icon name="mail" /><span>{site.labels.email}</span></a>
-          {home && site.showCVLink && profile.resumeUrl && <a href={profile.resumeUrl} download><Icon name="file" /><span>{site.labels.cv}</span></a>}
+          {home && <DocumentLinks />}
         </div>
       </div>
     </header>

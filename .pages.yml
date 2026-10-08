@@ -119,7 +119,11 @@ content:
         type: boolean
         default: true
       - name: showCVLink
-        label: Show C V Link
+        label: Show CV link
+        type: boolean
+        default: true
+      - name: showResumeLink
+        label: Show résumé link
         type: boolean
         default: true
       - name: navigation
@@ -151,6 +155,9 @@ content:
             type: string
           - name: cv
             label: Cv
+            type: string
+          - name: resume
+            label: Résumé
             type: string
           - name: news
             label: News
@@ -529,6 +536,9 @@ content:
         required: true
       - name: resumeUrl
         label: Public résumé PDF URL
+        type: string
+      - name: cvUrl
+        label: Public full CV PDF URL
         type: string
       - name: now
         label: Now

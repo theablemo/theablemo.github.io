@@ -18,14 +18,14 @@ Open the relevant file, change its contents, and save:
 
 | What to change | Where to edit |
 | --- | --- |
-| Bio, contact links, education, portrait, PDF link | `src/data/profile.json` |
+| Bio, contact links, education, portrait, résumé and CV PDF paths | `src/data/profile.json` |
 | Introduction text | `src/content/introduction.md` |
 | Homepage headings, section order, visibility, highlight | `src/data/homepage.json` |
 | Projects | A file in `src/content/projects/` |
 | Notes / writing | A file in `src/content/posts/` |
 | Experience | A file in `src/content/experience/` |
 | Publications or news | `src/data/publications.json` or `src/data/news.json` |
-| Navigation, footer, shared labels | `src/data/site.json` |
+| Navigation, footer, shared labels, résumé and CV visibility | `src/data/site.json` |
 | Avatar greeting, repeat timing, and portrait hint | `src/data/avatar-settings.json` |
 
 In JSON files, edit the existing values. To add a publication or news item, copy one complete item in that list and replace its values. Keep commas between items, with no comma after the last item.
@@ -86,11 +86,26 @@ Put images in `public/assets/uploads/`. In a Markdown page, refer to them withou
 ![Describe the image.](/assets/uploads/my-image.jpg)
 ```
 
-Every **CV** link downloads the PDF directly. Replace `public/assets/cv/Mohammad_Abolnejadian_Resume.pdf` with your updated PDF, keeping the filename, then preview and publish. If you use a different filename, update `resumeUrl` in `src/data/profile.json`. Clear `resumeUrl` to hide CV download links. Every file in `public/` is deployed.
+The compact **Résumé · CV** links download separate PDFs. Replace the corresponding files in `public/assets/cv/`, keeping their filenames, then preview and publish. In `src/data/profile.json`, `resumeUrl` selects the résumé and `cvUrl` selects the full CV.
+
+### Choose which documents to show
+
+Edit these existing switches in `src/data/site.json`. Keep the PDF paths in `src/data/profile.json` so you can switch documents on again later:
+
+| Show | `showResumeLink` | `showCVLink` |
+| --- | --- | --- |
+| Both | `true` | `true` |
+| Résumé only | `true` | `false` |
+| CV only | `false` | `true` |
+| Neither | `false` | `false` |
+
+These switches apply to the profile links and headers throughout the site. The separator appears only when both links are visible. A document also needs a nonempty PDF path to appear. In Pages CMS, the same switches are **Show résumé link** and **Show CV link** under **Site wording, navigation & footer**. Preview, then publish to update the live site.
+
+Hiding a link does not remove its PDF: every file in `public/` is deployed and remains accessible by its direct URL.
 
 The former HTML CV is archived in `src/archive/cv.astro`, outside the published routes. It uses the same `ProfileLinks` component as the homepage, so its contact formatting stays consistent. To restore it, replace `src/pages/cv.astro` with the archived file and change CV links back to `/cv/`. For now `/cv/` forwards old bookmarks to the PDF.
 
-Edit contact text with each link's optional `homeLabel` in `src/data/profile.json`. `label` still identifies the service for accessibility. Profile links use two rows: email, GitHub, Scholar; then LinkedIn and CV.
+Edit contact text with each link's optional `homeLabel` in `src/data/profile.json`. `label` still identifies the service for accessibility. Profile links use two rows: email, GitHub, Scholar; then LinkedIn and the enabled résumé/CV links.
 
 ## Tune the avatar
 

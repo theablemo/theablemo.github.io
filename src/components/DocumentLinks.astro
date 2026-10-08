@@ -1,0 +1,17 @@
+---
+import Icon from './Icon.astro';
+import { profile, site } from '../lib/settings';
+const showResume = site.showResumeLink && profile.resumeUrl;
+const showCV = site.showCVLink && profile.cvUrl;
+---
+{(showResume || showCV) && <span class="document-links">
+  <Icon name="file" />
+  {showResume && <a href={profile.resumeUrl} download>{site.labels.resume}</a>}
+  {showResume && showCV && <span aria-hidden="true">·</span>}
+  {showCV && <a href={profile.cvUrl} download>{site.labels.cv}</a>}
+</span>}
+
+<style>
+  .document-links { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .document-links > span { color: var(--muted); }
+</style>

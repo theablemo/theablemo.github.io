@@ -2,6 +2,7 @@
   "titleSuffix": "Applied AI, HCI & visualization",
   "showFooter": true,
   "showCVLink": true,
+  "showResumeLink": true,
   "navigation": [
     {
       "label": "Home",
@@ -26,6 +27,7 @@
     "basedIn": "Based in",
     "email": "Email",
     "cv": "CV",
+    "resume": "Résumé",
     "news": "Lately",
     "service": "Teaching, mentoring & service",
     "industry": "Industry",
