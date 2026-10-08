@@ -1,0 +1,11 @@
+---
+import { profile, site } from '../lib/settings';
+import Icon from './Icon.astro';
+const rows = [profile.socials.filter(s => s.icon !== 'linkedin'), profile.socials.filter(s => s.icon === 'linkedin')];
+---
+<div class="social-links" aria-label={site.accessibility.contact}>
+  {rows.map((links, row) => <div class="social-row">
+    {links.map(s => <a href={s.url} aria-label={s.homeLabel ? `${s.label}: ${s.homeLabel}` : undefined}><Icon name={s.icon} /><span>{s.homeLabel || s.label}</span></a>)}
+    {row === 1 && site.showCVLink && profile.resumeUrl && <a href={profile.resumeUrl} download><Icon name="file" /><span>{site.labels.cv}</span></a>}
+  </div>)}
+</div>

@@ -78,7 +78,8 @@ test('editing, adding, removing, and emptying content works without changing tem
     assert.equal(home.querySelector('.draft-preview'),null, 'SHOW_DRAFTS must never affect production');
     assert.doesNotMatch(home.body.textContent,/Unpublished test/);
     for (const route of ['writing','projects','pages']) assert.ok(!existsSync(path.join(root, `dist/${route}/private/index.html`)));
-    assert.doesNotMatch(document('cv/index.html').body.textContent,/Unpublished test role/);
+    assert.match(document('cv/index.html').querySelector('meta[http-equiv=refresh]').content, /test-resume.pdf/);
+    assert.equal(home.querySelector('.social-links a[download]').getAttribute('href'), profile.resumeUrl);
     assert.equal(document('pages/example/index.html').querySelector('h1').textContent,'Extra test page');
     run(['--test','tests/content.test.mjs','tests/site.test.mjs']);
     // Deleting the last item in each collection and removing every section must remain valid.

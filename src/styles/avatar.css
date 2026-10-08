@@ -63,22 +63,33 @@
   .is-home .page > .section, .is-home .page > .footer { padding-inline: 0; }
 }
 
-/* This hint occupies the existing gap below the portrait, so fading never shifts content. */
+/* A short, tiled reveal above the portrait; the identity and text never move. */
 .portrait-hint {
   position: absolute;
-  top: 100%;
+  bottom: calc(100% + 10px);
   left: 0;
-  margin: 6px 0 0;
+  margin: 0;
   color: var(--muted);
   font-size: 11px;
   line-height: 1.4;
   pointer-events: none;
-  animation: portrait-hint-dismiss var(--hint-duration) linear forwards;
+  white-space: nowrap;
+  animation: portrait-hint-dismiss var(--hint-duration) step-end forwards;
+}
+.hint-mask { position: absolute; }
+.hint-text { display: inline-block; mask: url(#portrait-hint-pixels); }
+.hint-pixels {
+  animation: portrait-hint-pixels calc(var(--hint-duration) - 225ms) steps(1, end) var(--pixel-delay) both;
 }
 .portrait-hint[hidden], .hint-touch { display: none; }
+@keyframes portrait-hint-pixels {
+  0% { opacity: 0; }
+  5%, 90% { opacity: 1; }
+  95%, 100% { opacity: 0; }
+}
 @keyframes portrait-hint-dismiss {
-  0%, 90% { opacity: 1; }
-  100% { opacity: 0; visibility: hidden; }
+  0% { visibility: visible; }
+  100% { visibility: hidden; }
 }
 @media (hover: none), (pointer: coarse) {
   .hint-hover { display: none; }

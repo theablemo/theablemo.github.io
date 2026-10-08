@@ -111,9 +111,9 @@
   color: var(--muted);
 }
 .social-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1px 19px;
+  display: grid;
+  container-type: inline-size;
+  gap: 0;
 }
 .social-links a {
   display: inline-flex;
@@ -731,4 +731,17 @@ details[open] > summary > .expand {
 }
 .post-list p {
   color: var(--muted);
+}
+
+.social-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0 12px; }
+.social-row a { white-space: nowrap; }
+@container (max-width: 350px) {
+  .social-row { gap: 0 10px; }
+  .social-row a { font-size: 11px; gap: 5px; }
+  .social-row .icon { width: 16px; height: 16px; }
+}
+@container (max-width: 310px) {
+  .social-row { gap: 0 4px; }
+  .social-row a { gap: 4px; }
+  .social-row .icon { width: 14px; height: 14px; }
 }

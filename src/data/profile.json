@@ -36,9 +36,10 @@
       "homeLabel": "mabolnej@uwaterloo.ca"
     },
     {
-      "label": "LinkedIn",
-      "url": "https://www.linkedin.com/in/mohammad-abolnejadian/",
-      "icon": "linkedin"
+      "label": "GitHub",
+      "url": "https://github.com/theablemo",
+      "icon": "github",
+      "homeLabel": "/theablemo"
     },
     {
       "label": "Scholar",
@@ -46,10 +47,10 @@
       "icon": "scholar"
     },
     {
-      "label": "GitHub",
-      "url": "https://github.com/theablemo",
-      "icon": "github",
-      "homeLabel": "/theablemo"
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/mohammad-abolnejadian/",
+      "icon": "linkedin",
+      "homeLabel": "/mohammad-abolnejadian"
     }
   ],
   "education": [

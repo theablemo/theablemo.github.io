@@ -1,0 +1,15 @@
+---
+import settings from '../data/avatar-settings.json';
+const hint = settings.portraitHint;
+const cells = Array.from({ length: 96 }, (_, index) => ({ x: (index % 24) / 24, y: Math.floor(index / 24) / 4, group: (index * 17 + Math.floor(index / 24) * 7) % 6 }));
+---
+<p id="portrait-hint" class="portrait-hint" aria-hidden="true" hidden style={`--hint-duration: ${hint.durationMs}ms`}>
+  <svg class="hint-mask" width="0" height="0" aria-hidden="true"><defs>
+    <mask id="portrait-hint-pixels" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox" x="0" y="0" width="1" height="1">
+      {Array.from({ length: 6 }, (_, group) => <g class="hint-pixels" style={`--pixel-delay: ${group * 45}ms`} fill="white">
+        {cells.filter(cell => cell.group === group).map(cell => <rect x={cell.x} y={cell.y} width={1 / 24 + 0.001} height="0.251" />)}
+      </g>)}
+    </mask>
+  </defs></svg>
+  <span class="hint-text"><span class="hint-hover">{hint.hoverText}</span><span class="hint-touch">{hint.touchText}</span></span>
+</p>

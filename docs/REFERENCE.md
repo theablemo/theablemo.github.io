@@ -69,7 +69,7 @@ Existing layouts are retained. New text/image sections and reading pages require
 
 ## Images, galleries, and résumé
 
-Copy images/PDFs into `public/assets/uploads/`, then reference them as `/assets/uploads/filename.ext`. Use names without spaces. `profile.portrait` selects the portrait; `portraitAlt` describes it. Local JPG/PNG/WebP portraits retain Astro image optimization. `resumeUrl` selects the PDF download on `/cv/`; an empty value hides that button. Store the résumé in `public/assets/cv/`. Homepage CV links always open the HTML CV. Review the PDF before adding it: every file in `public/` is deployed.
+Copy images/PDFs into `public/assets/uploads/`, then reference them as `/assets/uploads/filename.ext`. Use names without spaces. `profile.portrait` selects the portrait; `portraitAlt` describes it. Local JPG/PNG/WebP portraits retain Astro image optimization. `resumeUrl` selects the direct CV download; an empty value hides CV links. Store the résumé in `public/assets/cv/`. The HTML CV is archived in `src/archive/cv.astro`; old `/cv/` bookmarks forward to the PDF. Review the PDF before adding it: every file in `public/` is deployed.
 
 For projects, `image`/`alt` select the card thumbnail; `cover`/`coverAlt` select the page header. Without a cover, the header uses the thumbnail. Notes and standalone pages use `cover`/`coverAlt`. All can be text-only. Optional `coverCaption`, `coverWidth`, and `coverHeight` provide credit and source dimensions.
 

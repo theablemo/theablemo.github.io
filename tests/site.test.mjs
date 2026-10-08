@@ -235,8 +235,8 @@ for (const reduced of [false, true]) {
   });
 }
 
-test("shared enhancements work on reading, archive, CV, and 404 pages", () => {
-  for (const file of htmlFiles.filter(file => file !== "index.html")) {
+test("shared enhancements work on reading, archive, and 404 pages", () => {
+  for (const file of htmlFiles.filter(file => file !== "index.html" && file !== "cv/index.html")) {
     const { dom, w, doc, intervals, flushFrame } = interactive({ file });
     try {
       assert.equal(doc.querySelector("#portrait"), null);

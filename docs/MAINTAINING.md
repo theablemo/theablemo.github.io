@@ -86,9 +86,11 @@ Put images in `public/assets/uploads/`. In a Markdown page, refer to them withou
 ![Describe the image.](/assets/uploads/my-image.jpg)
 ```
 
-The CV page includes a **Download PDF** button. Replace `public/assets/cv/Mohammad_Abolnejadian_Resume.pdf` with your updated PDF, keeping the filename, then preview and publish. If you use a different filename, update `resumeUrl` in `src/data/profile.json` to `/assets/cv/your-file.pdf`. Homepage CV links always open the readable CV page. Clear `resumeUrl` to hide the download button. Every file in `public/` is deployed, even if only a draft uses it.
+Every **CV** link downloads the PDF directly. Replace `public/assets/cv/Mohammad_Abolnejadian_Resume.pdf` with your updated PDF, keeping the filename, then preview and publish. If you use a different filename, update `resumeUrl` in `src/data/profile.json`. Clear `resumeUrl` to hide CV download links. Every file in `public/` is deployed.
 
-For homepage contact text, edit a link's optional `homeLabel` in `src/data/profile.json`. Its `label` still identifies the service for accessibility and on the CV page. The current homepage shows the email address and GitHub handle, with compact LinkedIn and Scholar labels.
+The former HTML CV is archived in `src/archive/cv.astro`, outside the published routes. It uses the same `ProfileLinks` component as the homepage, so its contact formatting stays consistent. To restore it, replace `src/pages/cv.astro` with the archived file and change CV links back to `/cv/`. For now `/cv/` forwards old bookmarks to the PDF.
+
+Edit contact text with each link's optional `homeLabel` in `src/data/profile.json`. `label` still identifies the service for accessibility. Profile links use two rows: email, GitHub, Scholar; then LinkedIn and CV.
 
 ## Tune the avatar
 
@@ -98,8 +100,8 @@ Edit `src/data/avatar-settings.json`:
 | --- | --- |
 | `initialCameoDelayMs: 900` | Greet after 0.9 seconds; use `null` to skip the opening cameo. |
 | `cameoDelayMs: [10000, 18000]` | Wait a random 10–18 seconds after each cameo finishes. |
-| `portraitHint.enabled: true` | Show the temporary hint under the portrait. Set to `false` to hide it. |
-| `portraitHint.durationMs: 8000` | Fade the hint away after 8 seconds. |
+| `portraitHint.enabled: true` | Show the temporary hint above the portrait. Set to `false` to hide it. |
+| `portraitHint.durationMs: 8000` | Reveal and dissolve the hint in pixel tiles over 8 seconds. |
 | `portraitHint.hoverText` / `touchText` | Wording for mouse and touch devices. |
 
 Timing uses milliseconds: 1,000 = one second. Keep delays nonnegative and the second repeat delay at least as large as the first. The hint also disappears after interaction or scrolling. Automatic cameos pause while the page is hidden, the portrait is offscreen, or the scrolling avatar is using it. Reduced motion and the visitor's saved motion preference take priority.
