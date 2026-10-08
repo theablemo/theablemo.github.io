@@ -44,6 +44,9 @@ async function harness({
     url: "https://portfolio.test/",
     pretendToBeVisual: true,
   });
+  const hint = dom.window.document.createElement('p');
+  hint.id = 'portrait-hint'; hint.hidden = true;
+  dom.window.document.querySelector('.identity-anchor').append(hint);
   const w = dom.window,
     doc = w.document;
   let now = 0,
@@ -1008,4 +1011,36 @@ test("sustained wheel bursts keep moving while new targets arrive every frame", 
   }
   assert.equal(motion.follow(1400, 400, 520), 1400);
   assert.equal(motion.pending, false);
+});
+
+
+test("opening greeting uses its own delay, then repeats within the configured interval", async () => {
+  const h = await harness();
+  assert.equal(h.portrait.dataset.avatar, 'false');
+  assert.equal(h.doc.querySelector('#portrait-hint').hidden, false);
+  await h.step(settings.initialCameoDelayMs - 17);
+  assert.equal(h.portrait.dataset.avatar, 'false');
+  await h.step(1);
+  assert.equal(h.portrait.dataset.gesture, 'wave');
+  await h.step(2300);
+  await h.step(2300);
+  assert.equal(h.portrait.dataset.avatar, 'false');
+  const [next] = [...h.timers.values()];
+  const delay = next.at - h.w.performance.now();
+  assert.ok(delay >= settings.cameoDelayMs[0] && delay <= settings.cameoDelayMs[1]);
+  await h.step(delay);
+  assert.equal(h.portrait.dataset.gesture, 'wave');
+  h.dom.window.close();
+});
+
+test("portrait hint dismisses on interaction or scroll and stays hidden when motion is disabled", async () => {
+  for (const action of ['pointer', 'scroll', 'disabled', 'reduced']) {
+    const h = await harness({ saved: action === 'disabled' ? 'off' : null, reduced: action === 'reduced' });
+    if (action === 'pointer') h.pointer('pointerenter');
+    if (action === 'scroll') await h.scroll(5);
+    assert.equal(h.doc.querySelector('#portrait-hint').hidden, true, action);
+    await h.visibility(true); await h.visibility(false);
+    assert.equal(h.doc.querySelector('#portrait-hint').hidden, true, action);
+    h.dom.window.close();
+  }
 });

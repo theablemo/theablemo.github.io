@@ -69,7 +69,7 @@ Existing layouts are retained. New text/image sections and reading pages require
 
 ## Images, galleries, and résumé
 
-Copy images/PDFs into `public/assets/uploads/`, then reference them as `/assets/uploads/filename.ext`. Use names without spaces. `profile.portrait` selects the portrait; `portraitAlt` describes it. Local JPG/PNG/WebP portraits retain Astro image optimization. `resumeUrl` selects your public PDF; empty uses the generated HTML CV. Review the PDF before adding it: every file in `public/` is deployed.
+Copy images/PDFs into `public/assets/uploads/`, then reference them as `/assets/uploads/filename.ext`. Use names without spaces. `profile.portrait` selects the portrait; `portraitAlt` describes it. Local JPG/PNG/WebP portraits retain Astro image optimization. `resumeUrl` selects the PDF download on `/cv/`; an empty value hides that button. Store the résumé in `public/assets/cv/`. Homepage CV links always open the HTML CV. Review the PDF before adding it: every file in `public/` is deployed.
 
 For projects, `image`/`alt` select the card thumbnail; `cover`/`coverAlt` select the page header. Without a cover, the header uses the thumbnail. Notes and standalone pages use `cover`/`coverAlt`. All can be text-only. Optional `coverCaption`, `coverWidth`, and `coverHeight` provide credit and source dimensions.
 
@@ -122,7 +122,7 @@ For example, the first command creates `src/content/posts/my-note.md` with `draf
 
 The site has two intentional artwork choices: **Current / Arcade** for the animated companion and **Original Brick, three-quarter view** for the favicon. The README uses a larger PNG rendered from that same favicon artwork.
 
-- `src/data/avatar-settings.json`: active outfit, shirt color, optional lettering, portrait gesture timing and motion settings. Keep `markText` empty for the current plain shirt. New clothing shapes require matching pose artwork, not just a color setting.
+- `src/data/avatar-settings.json`: active outfit, shirt color, optional lettering, portrait gesture timing and motion settings (see [Tune the avatar](MAINTAINING.md#tune-the-avatar) for the opening greeting, repeat interval, and temporary hint). Keep `markText` empty for the current plain shirt. New clothing shapes require matching pose artwork, not just a color setting.
 - `src/data/avatar-route.json`: each section's `recipe`, `descent` and `gesture`. Recipes are `timeline`, `header`, `perch` and `finish`. Descents are `abseil`, `elevator`, `crawl`, `crawl-front`, `slide` and `parachute`. Gestures are `idle`, `curious` and `wave`. New sections default to `perch`; add their IDs to `scenes` for custom paths and to `.pages.yml` to expose those controls in the CMS.
 - `src/data/avatar-clips.json`: frame crops, masks, pivots and hand grips. Edit only when changing the source artwork. Lossless sprite originals live in `public/assets/avatar/`.
 - `public/favicon.svg`: self-contained selected favicon. After changing it, run `node scripts/build-favicon.mjs` to regenerate its PNG/ICO fallbacks and the README avatar. If the favicon remains cached, update the version suffix in `src/layouts/Site.astro`.

@@ -5,7 +5,7 @@
   "email": "mabolnej@uwaterloo.ca",
   "location": "Ontario, Canada",
   "description": "Mohammad Abolnejadian builds AI tools that help people make sense of complex information and make informed decisions.",
-  "resumeUrl": "",
+  "resumeUrl": "/assets/cv/Mohammad_Abolnejadian_Resume.pdf",
   "now": [
     {
       "label": "Applied AI Scientist · Verily",
@@ -32,7 +32,8 @@
     {
       "label": "Email",
       "url": "mailto:mabolnej@uwaterloo.ca",
-      "icon": "mail"
+      "icon": "mail",
+      "homeLabel": "mabolnej@uwaterloo.ca"
     },
     {
       "label": "LinkedIn",
@@ -47,7 +48,8 @@
     {
       "label": "GitHub",
       "url": "https://github.com/theablemo",
-      "icon": "github"
+      "icon": "github",
+      "homeLabel": "/theablemo"
     }
   ],
   "education": [

@@ -18,7 +18,7 @@ Open the relevant file, change its contents, and save:
 
 | What to change | Where to edit |
 | --- | --- |
-| Bio, contact links, education, portrait, résumé link | `src/data/profile.json` |
+| Bio, contact links, education, portrait, PDF link | `src/data/profile.json` |
 | Introduction text | `src/content/introduction.md` |
 | Homepage headings, section order, visibility, highlight | `src/data/homepage.json` |
 | Projects | A file in `src/content/projects/` |
@@ -26,6 +26,7 @@ Open the relevant file, change its contents, and save:
 | Experience | A file in `src/content/experience/` |
 | Publications or news | `src/data/publications.json` or `src/data/news.json` |
 | Navigation, footer, shared labels | `src/data/site.json` |
+| Avatar greeting, repeat timing, and portrait hint | `src/data/avatar-settings.json` |
 
 In JSON files, edit the existing values. To add a publication or news item, copy one complete item in that list and replace its values. Keep commas between items, with no comma after the last item.
 
@@ -85,7 +86,23 @@ Put images in `public/assets/uploads/`. In a Markdown page, refer to them withou
 ![Describe the image.](/assets/uploads/my-image.jpg)
 ```
 
-For a résumé PDF, put the reviewed file in the same folder and set `resumeUrl` in `src/data/profile.json` to `/assets/uploads/my-resume.pdf`. Leave `resumeUrl` empty to use the generated CV. Every file in `public/` is deployed, even if only a draft uses it.
+The CV page includes a **Download PDF** button. Replace `public/assets/cv/Mohammad_Abolnejadian_Resume.pdf` with your updated PDF, keeping the filename, then preview and publish. If you use a different filename, update `resumeUrl` in `src/data/profile.json` to `/assets/cv/your-file.pdf`. Homepage CV links always open the readable CV page. Clear `resumeUrl` to hide the download button. Every file in `public/` is deployed, even if only a draft uses it.
+
+For homepage contact text, edit a link's optional `homeLabel` in `src/data/profile.json`. Its `label` still identifies the service for accessibility and on the CV page. The current homepage shows the email address and GitHub handle, with compact LinkedIn and Scholar labels.
+
+## Tune the avatar
+
+Edit `src/data/avatar-settings.json`:
+
+| Setting | Current behavior |
+| --- | --- |
+| `initialCameoDelayMs: 900` | Greet after 0.9 seconds; use `null` to skip the opening cameo. |
+| `cameoDelayMs: [10000, 18000]` | Wait a random 10–18 seconds after each cameo finishes. |
+| `portraitHint.enabled: true` | Show the temporary hint under the portrait. Set to `false` to hide it. |
+| `portraitHint.durationMs: 8000` | Fade the hint away after 8 seconds. |
+| `portraitHint.hoverText` / `touchText` | Wording for mouse and touch devices. |
+
+Timing uses milliseconds: 1,000 = one second. Keep delays nonnegative and the second repeat delay at least as large as the first. The hint also disappears after interaction or scrolling. Automatic cameos pause while the page is hidden, the portrait is offscreen, or the scrolling avatar is using it. Reduced motion and the visitor's saved motion preference take priority.
 
 ## Publish your changes
 

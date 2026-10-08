@@ -51,7 +51,7 @@ const currentLink = (href: string) => home ? undefined
         </nav>
         <div class="header-links" aria-label={site.accessibility.quickLinks}>
           <a href={`mailto:${profile.email}`}><Icon name="mail" /><span>{site.labels.email}</span></a>
-          {home && site.showCVLink && <a href={profile.resumeUrl || '/cv/'}><Icon name="file" /><span>{site.labels.cv}</span></a>}
+          {home && site.showCVLink && <a href="/cv/"><Icon name="file" /><span>{site.labels.cv}</span></a>}
         </div>
       </div>
     </header>

@@ -29,6 +29,9 @@ components:
   resource:
     type: object
     fields:
+      - name: homeLabel
+        label: Homepage display text (optional, profile links only)
+        type: string
       - name: label
         type: string
         required: true

@@ -62,3 +62,26 @@
   .avatar-journey, .avatar-motion { display: none; }
   .is-home .page > .section, .is-home .page > .footer { padding-inline: 0; }
 }
+
+/* This hint occupies the existing gap below the portrait, so fading never shifts content. */
+.portrait-hint {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+  pointer-events: none;
+  animation: portrait-hint-dismiss var(--hint-duration) linear forwards;
+}
+.portrait-hint[hidden], .hint-touch { display: none; }
+@keyframes portrait-hint-dismiss {
+  0%, 90% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+@media (hover: none), (pointer: coarse) {
+  .hint-hover { display: none; }
+  .hint-touch { display: inline; }
+}
+@media print { .portrait-hint { display: none; } }

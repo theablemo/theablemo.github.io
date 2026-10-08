@@ -9,6 +9,11 @@ export function mountPortrait(button: HTMLButtonElement, renderer: AvatarRendere
   const ctx = canvas.getContext('2d');
   if (!ctx) return { refresh() {} };
   ctx.imageSmoothingEnabled = false;
+  const hint = document.querySelector<HTMLElement>('#portrait-hint');
+  let hintDismissed = false;
+  let initialPending = settings.initialCameoDelayMs !== null;
+  const dismissHint = () => { hintDismissed = true; if (hint) hint.hidden = true; };
+  window.addEventListener('scroll', dismissHint, { once: true, passive: true });
   let hovering = false, focused = false, dismissed = false;
   let visible = true, version = 0, exiting = false;
   let mode: Preview | undefined;
@@ -55,7 +60,8 @@ export function mountPortrait(button: HTMLButtonElement, renderer: AvatarRendere
     cancel();
     if (!usable() || !animated() || hovering || focused) return;
     const [min, max] = settings.cameoDelayMs;
-    timer = window.setTimeout(() => void start('cameo'), min + Math.random() * (max - min));
+    const delay = initialPending ? settings.initialCameoDelayMs! : min + Math.random() * (max - min);
+    timer = window.setTimeout(() => void start('cameo'), delay);
   }
   function tick() {
     if (!usable() || !animated()) { hide(); return; }
@@ -72,6 +78,8 @@ export function mountPortrait(button: HTMLButtonElement, renderer: AvatarRendere
   }
   async function start(next: Exclude<Preview, 'static'>) {
     if (!usable() || (!animated() && next !== 'once')) return;
+    initialPending = false;
+    if (next !== 'cameo') dismissHint();
     // A fresh interaction owns the preview, even if it interrupts a cameo.
     hide();
     mode = animated() ? next : 'static';
@@ -88,6 +96,7 @@ export function mountPortrait(button: HTMLButtonElement, renderer: AvatarRendere
     }
   }
   function refresh() {
+    if (hint) hint.hidden = hintDismissed || !animated() || !usable();
     const explicit = mode === 'once' || mode === 'static';
     hide();
     if (explicit && usable()) void start('once');

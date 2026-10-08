@@ -7,9 +7,19 @@
       "markColor": "#17232b"
     }
   },
-  "cameoDelayMs": [25000, 45000],
+  "cameoDelayMs": [
+    10000,
+    18000
+  ],
   "bodyHeight": {
     "desktop": 80,
     "mobile": 56
+  },
+  "initialCameoDelayMs": 900,
+  "portraitHint": {
+    "enabled": true,
+    "durationMs": 8000,
+    "hoverText": "Hover to meet pixel me.",
+    "touchText": "Tap to meet pixel me."
   }
 }

@@ -164,7 +164,12 @@
   align-items: center;
   gap: 8px;
   min-height: 44px;
+  margin-top: 18px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
 }
+.download-link:hover { border-color: var(--accent); }
 .not-found {
   padding-top: 90px;
 }
