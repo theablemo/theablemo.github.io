@@ -16,7 +16,7 @@ if (legend && legendButton && legendLabels) {
     legendButton.setAttribute("aria-expanded", String(expanded));
     legendButton.setAttribute(
       "aria-label",
-      (pinned ? legendButton.dataset.hideLabel : legendButton.dataset.showLabel) || `${pinned ? "Hide" : "Show"} timeline key: square for industry, diamond for academia`,
+      (pinned ? legendButton.dataset.hideLabel : legendButton.dataset.showLabel) || `${pinned ? "Hide" : "Show"} timeline key`,
     );
     legendLabels.setAttribute("aria-hidden", String(!expanded));
   };

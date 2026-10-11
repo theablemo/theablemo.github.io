@@ -1,5 +1,6 @@
 ---
 import Icon from './Icon.astro';
+import AffiliationKind from './AffiliationKind.astro';
 import Resources from './Resources.astro';
 import Venue from './Venue.astro';
 import ProjectGrid from './ProjectGrid.astro';
@@ -19,17 +20,17 @@ const scholar = profile.socials.find(s => s.icon === 'scholar');
       <div class="section-heading">
         <h2 id={`${section.id}-title`}><Icon name={section.icon} />{section.title}</h2>
         <div class="timeline-legend" id="timeline-legend" data-expanded="true">
-          <button class="legend-toggle" aria-label={site.accessibility.showKey} data-show-label={site.accessibility.showKey} data-hide-label={site.accessibility.hideKey} aria-expanded="true" aria-controls="legend-labels" hidden><span class="marker industry"></span><span class="marker academia"></span><span class="legend-caption">{site.labels.key}</span></button>
-          <div class="legend-labels" id="legend-labels"><span><i class="marker industry"></i>{site.labels.industry}</span><span><i class="marker academia"></i>{site.labels.academia}</span></div>
+          <button class="legend-toggle" aria-label={site.accessibility.showKey} data-show-label={site.accessibility.showKey} data-hide-label={site.accessibility.hideKey} aria-expanded="true" aria-controls="legend-labels" hidden><AffiliationKind kind="industry" /><AffiliationKind kind="academia" /><span class="legend-caption">{site.labels.key}</span></button>
+          <div class="legend-labels" id="legend-labels"><span><AffiliationKind kind="industry" />{site.labels.industry}</span><span><AffiliationKind kind="academia" />{site.labels.academia}</span></div>
         </div>
       </div>
       <div class="timeline">
         {roles.map(({ id, data: e, Content }) => <article class="experience" data-kind={e.kind}>
-          <i class:list={['timeline-marker', 'marker', e.kind]} aria-hidden="true"></i>
+          <AffiliationKind kind={e.kind} class="timeline-marker" />
           <span class="sr-only">{e.kind === 'industry' ? site.labels.industry : site.labels.academia}</span>
           <div class="experience-row">
             <span class="experience-date">{e.date}</span>
-            <h3>{e.logo && <img class="org-logo" src={e.logo} width="24" height="24" alt="" loading="lazy" />}{e.organizationUrl ? <a href={e.organizationUrl}>{e.organization}</a> : e.organization}</h3>
+            <h3>{e.logo ? <img class="org-logo" src={e.logo} width="24" height="24" alt="" loading="lazy" /> : <span class="org-monogram" aria-hidden="true">{e.organization.charAt(0)}</span>}{e.organizationUrl ? <a href={e.organizationUrl}>{e.organization}</a> : e.organization}</h3>
             <details class="experience-disclosure" id={`role-${id}`}>
               <summary><span>{e.role}</span><span class="sr-only"> at {e.organization}. {site.accessibility.details}</span><Icon name="plus" class="expand" /></summary>
               <div class="experience-detail"><Content /><Resources items={e.highlights} label={`${e.organization} ${site.accessibility.highlights}`} /></div>

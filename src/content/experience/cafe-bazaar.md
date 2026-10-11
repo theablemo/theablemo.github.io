@@ -2,6 +2,7 @@
 order: 4
 organization: "Cafe Bazaar"
 organizationUrl: "https://cafebazaar.ir/"
+logo: "/assets/organizations/cafe-bazaar.png"
 role: "Software Engineer"
 date: "2022–23"
 kind: "industry"

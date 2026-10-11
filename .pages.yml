@@ -63,13 +63,18 @@ components:
       - name: url
         type: string
         required: true
-      - name: icon
+      - name: kind
+        label: Affiliation type
         type: select
+        required: true
         options:
           values:
-            - briefcase
-            - degree
-            - code
+            - industry
+            - academia
+      - name: logo
+        label: Organization logo
+        type: image
+        required: false
   avatar-scene:
     type: object
     fields:

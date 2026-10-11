@@ -2,6 +2,7 @@
 order: 3
 organization: "TEIAS"
 organizationUrl: "https://teias.institute/"
+logo: "/assets/organizations/teias.png"
 role: "Research Assistant"
 date: "2023"
 kind: "academia"

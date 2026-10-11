@@ -8,7 +8,7 @@ import newsData from '../data/news.json';
 const text = z.string();
 const link = z.string().refine(v => !v || /^(https?:\/\/|mailto:|tel:|\/(?!\/)|#)/.test(v), 'Use https://, mailto:, or a /local/path/.');
 const resource = z.object({ label: text, url: link, icon: text.default('external') });
-const credential = resource.extend({ detail: text });
+const credential = z.object({ label: text, url: link, detail: text, kind: z.enum(['industry', 'academia']), logo: link.optional() });
 function parse<T>(name: string, schema: z.ZodType<T>, data: unknown): T {
   const result = schema.safeParse(data);
   if (!result.success) throw new Error(`Check src/data/${name}.json:\n${result.error.issues.map(i => `${i.path.join('.')}: ${i.message}`).join('\n')}`);
