@@ -305,8 +305,8 @@
     bottom: 50px;
   }
   .timeline-marker {
-    left: -25px;
-    top: 26px;
+    left: -27px;
+    top: 24px;
   }
   .experience-row {
     --experience-columns: 65px minmax(0, 1fr) 20px;

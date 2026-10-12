@@ -126,10 +126,10 @@
   vertical-align: -4px;
   margin-right: 4px;
   opacity: 0.9;
-  filter: grayscale(1) brightness(0) invert(1);
+  filter: grayscale(1) invert(1);
 }
 :root[data-theme="light"] .credential-logo {
-  filter: grayscale(1) brightness(0);
+  filter: grayscale(1);
 }
 .credential-row:last-child a {
   color: var(--muted);
@@ -382,11 +382,11 @@
 }
 .timeline-marker {
   position: absolute;
-  left: -31px;
-  top: 29px;
+  left: -33px;
+  top: 27px;
   z-index: 1;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   background: var(--bg);
   outline: 2px solid var(--bg);
 }
