@@ -305,8 +305,8 @@
     bottom: 50px;
   }
   .timeline-marker {
-    left: -27px;
-    top: 24px;
+    left: -25px;
+    top: 26px;
   }
   .experience-row {
     --experience-columns: 65px minmax(0, 1fr) 20px;
@@ -501,10 +501,9 @@
 .credentials { gap: 12px; font-size: 13px; }
 .credential-row { display: block; }
 .credential-row dt { margin-bottom: 2px; }
-.credential-row dd { gap: 2px 16px; align-items: baseline; }
+.credential-row dd { gap: 2px; }
 .credential-row a { min-height: 24px; align-items: flex-start; }
 .credential-row .affiliation-kind { margin-top: 3px; }
-.credential-row .org-logo { margin-top: 1px; }
 .experience-row h3 { display: flex; align-items: center; gap: 10px; }
 .org-logo { width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; padding: 3px; background: #fff; border-radius: 4px; }
 .org-monogram { display: inline-flex; width: 24px; height: 24px; flex: 0 0 auto; align-items: center; justify-content: center; border-radius: 4px; background: var(--surface); color: var(--muted); font-size: 14px; font-weight: 700; }
