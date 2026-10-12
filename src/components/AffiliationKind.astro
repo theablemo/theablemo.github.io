@@ -1,0 +1,6 @@
+---
+import Icon from './Icon.astro';
+interface Props { kind: 'industry' | 'academia'; class?: string }
+const { kind, class: className = '' } = Astro.props;
+---
+<span class:list={['affiliation-kind', kind, className]} aria-hidden="true"><Icon name={kind === 'industry' ? 'briefcase' : 'degree'} /></span>

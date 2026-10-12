@@ -305,8 +305,8 @@
     bottom: 50px;
   }
   .timeline-marker {
-    left: -21px;
-    top: 29px;
+    left: -27px;
+    top: 24px;
   }
   .experience-row {
     --experience-columns: 65px minmax(0, 1fr) 20px;
@@ -501,12 +501,17 @@
 .credentials { gap: 12px; font-size: 13px; }
 .credential-row { display: block; }
 .credential-row dt { margin-bottom: 2px; }
-.credential-row dd { gap: 2px 16px; align-items: baseline; }
+.credential-row dd { gap: 2px; }
 .credential-row a { min-height: 24px; align-items: flex-start; }
-.credential-row .icon { width: 16px; height: 16px; margin-top: 3px; color: var(--accent); }
-.credential-row:first-child a:first-child .icon { color: var(--second); }
+.credential-row .affiliation-kind { margin-top: 3px; }
 .experience-row h3 { display: flex; align-items: center; gap: 10px; }
-.org-logo { width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; padding: 3px; background: #fff; border-radius: 4px; }
+.org-logo, .org-monogram {
+  background: var(--surface);
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.org-logo { width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; padding: 3px; }
+.org-monogram { display: inline-flex; width: 24px; height: 24px; flex: 0 0 auto; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; font-weight: 700; }
 .writing-empty { padding-block: 24px; color: var(--muted); }
 .header-inner { gap: 20px; }
 .header-identity { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }
@@ -571,6 +576,7 @@
   .credential-row dd { gap: 3px 16px; }
   .experience-row h3 { gap: 7px; }
   .org-logo { width: 20px; height: 20px; padding: 2px; }
+  .org-monogram { width: 20px; height: 20px; font-size: 12px; }
 }
 @media (max-width: 480px) {
   .header-inner { column-gap: 8px; }

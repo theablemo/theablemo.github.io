@@ -12,21 +12,24 @@
       "label": "Applied AI Scientist · Verily",
       "detail": "Applied AI Scientist at Verily",
       "url": "https://verily.com/",
-      "icon": "briefcase"
+      "kind": "industry",
+      "logo": "/assets/organizations/verily.ico"
     },
     {
       "label": "Master’s CS HCI · UWaterloo",
       "detail": "M.Math. in Computer Science at the University of Waterloo, in progress",
       "url": "https://uwaterloo.ca/",
-      "icon": "degree"
+      "kind": "academia",
+      "logo": "/assets/organizations/waterloo.ico"
     }
   ],
   "previously": [
     {
-      "label": "B.Sc. Computer Engineering · Sharif University of Technology",
+      "label": "B.Sc. Computer Engineering · Sharif",
       "detail": "B.Sc. in Computer Engineering at Sharif University of Technology",
       "url": "https://en.sharif.edu/",
-      "icon": "degree"
+      "kind": "academia",
+      "logo": "/assets/organizations/sharif.png"
     }
   ],
   "socials": [
